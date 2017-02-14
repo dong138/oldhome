@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+          <head>
+        <meta charset="utf-8">
+            
+            <title>
+                东哥的第2个python | Howdoit
+            </title>
+            <meta content="width=device-width, initial-scale=1" name="viewport">
+            <meta name="theme-color" content="#4184f3">
+            
+            
+            <link href="/favicon.ico" rel="icon"/>
+            
+
+            <link rel="stylesheet" href="/css/highlight.light.css">
+            <link rel="stylesheet" href="/css/prism-customize.css">
+            <link rel="stylesheet" href="/css/nav-icon.css">
+            <link rel="stylesheet" href="/css/waves.min.css">
+            <link rel="stylesheet" href="/css/jquery.tocify.css">
+            <link rel="stylesheet" href="/css/main.css">
+            <link rel="stylesheet" href="/css/nav-indicator.css">
+            
+  
+
+  
+            </meta>
+        </meta>
+    </head>
+
+    <body>
+        <header>
+            <!-- cover image or sth. -->
+        </header>
+        <div id="main" class="m-scene">
+            
+<div class="nav-wrapper">
+
+    <div class="container">
+        <nav>
+            <div class="logo wave">
+                <a href="/" id="logo">
+                    Howdoit
+                </a>
+            </div>
+            <div class="nav-toggle-icon" >
+                <div class="material-hamburger">
+                    <span>
+                    </span>
+                    <span>
+                    </span>
+                    <span>
+                    </span>
+                </div>
+            </div>
+            <div class="menu-wrapper">
+                <div class="nav-indicator">
+                </div>
+                <ul class="menus">
+                    
+                     
+                        <li>
+                            <a class="wave " href="/categories/Python">
+                                Python
+                            </a>
+                        </li>
+                     
+                        <li>
+                            <a class="wave " href="/archives">
+                                C语言
+                            </a>
+                        </li>
+                     
+                    
+                   
+                </ul>
+            </div>
+        </nav>
+    </div>
+</div>
+            <div class="container content">
+                <div class="scene_element scene_element--fadein">
+                    <div class="row">
+    <div class="main">
+        <article>
+          
+          <header class="post-header with-cover" style="background-image:url('/img/6631250284633936391.jpg')" >
+          
+          </header>
+          <h1 class="post-title">东哥的第2个python</h1>
+
+          <section class="post-info">
+            <span class="post-date">2017/02/14</span>
+            
+            <span class="post-category">
+                <a class="article-category-link" href="/categories/Python/">Python</a>
+            </span>
+            
+            
+          </section>
+
+          <section class="post-content">
+            <h1 id="HTTP相关介绍"><a href="#HTTP相关介绍" class="headerlink" title="HTTP相关介绍"></a>HTTP相关介绍</h1><p>HTTP协议（HyperText Transfer Protocol，超文本传输协议）是用于从WWW服务器传输超文本到本地浏览器的传送协议。它可以使浏览器更加高效，使网络传输减少。它不仅保证计算机正确快速地传输超文本文档，还确定传输文档中的哪一部分，以及哪部分内容首先显示(如文本先于图形)等。</p>
+<p>HTTP是一个应用层协议，由请求和响应构成，是一个标准的客户端服务器模型。HTTP是一个无状态的协议。</p>
+<p>在TCP/IP协议栈中的位置</p>
+<p>HTTP协议通常承载于TCP协议之上，有时也承载于TLS或SSL协议层之上，这个时候，就成了我们常说的HTTPS。</p>
+<p>如下图所示：</p>
+<p><img src="../Images/02-就业班-02-37.jpg" alt=""></p>
+<p>默认HTTP的端口号为80，HTTPS的端口号为443</p>
+<p>HTTP协议永远都是客户端发起请求，服务器回送响应。</p>
+<p>见下图：</p>
+<p><img src="../Images/02-就业班-02-38.jpg" alt=""></p>
+<p>工作流程：</p>
+<p>一次HTTP操作称为一个事务，其工作过程可分为四步：</p>
+<ol>
+<li>首先客户机与服务器需要建立连接。只要单击某个超级链接，HTTP的工作开始。</li>
+<li>建立连接后，客户机发送一个请求给服务器，请求方式的格式为：统一资源标识符（URL）、协议版本号，后边是MIME信息包括请求修饰符、客户机信息和可能的内容。</li>
+<li>服务器接到请求后，给予相应的响应信息，其格式为一个状态行，包括信息的协议版本号、一个成功或错误的代码，后边是MIME信息包括服务器信息、实体信息和可能的内容。</li>
+<li>客户端接收服务器所返回的信息通过浏览器显示在用户的显示屏上，然后客户机与服务器断开连接。<br>如果在以上过程中的某一步出现错误，那么产生错误的信息将返回到客户端，有显示屏输出。对于用户来说，这些过程是由HTTP自己完成的，用户只要用鼠标点击，等待信息显示就可以了</li>
+</ol>
+<p>HTTP请求消息：</p>
+<p>请求消息格式如下所示：</p>
+<p>请求行</p>
+<p>通用信息头|请求头|实体头</p>
+<p>CRLF(回车换行)</p>
+<p>实体内容</p>
+<p>其中“请求行”为：请求行 = 方法 [空格] 请求URI [空格] 版本号 [回车换行]</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">GET /hello.htm HTTP/1.1</div><div class="line">Accept: */*</div><div class="line">Accept-Language: zh-cn</div><div class="line">Accept-Encoding: gzip, deflate</div><div class="line">If-Modified-Since: Wed, 17 Oct 2007 02:15:55 GMT</div><div class="line">If-None-Match: W/&quot;158-1192587355000&quot;</div><div class="line">User-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)</div><div class="line">Host: 192.168.2.162:8080</div><div class="line">Connection: Keep-Alive</div></pre></td></tr></table></figure>
+<p>HTTP的请求方法包括如下几种：</p>
+<ul>
+<li>GET</li>
+<li>POST</li>
+<li>HEAD</li>
+<li>PUT</li>
+<li>DELETE</li>
+<li>OPTIONS</li>
+<li>TRACE</li>
+<li>CONNECT</li>
+</ul>
+<p>HTTP响应消息的格式如下所示：</p>
+<p>状态行</p>
+<p>通用信息头|响应头|实体头</p>
+<p>CRLF</p>
+<p>实体内容</p>
+<p>其中：状态行 = 版本号 [空格] 状态码 [空格] 原因 [回车换行]</p>
+<p>示例1:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">HTTP/1.0 200 OK</div></pre></td></tr></table></figure></p>
+<p>示例2：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">HTTP/1.1 400 Bad Request</div></pre></td></tr></table></figure></p>
+<p>HTTP响应消息实例如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">HTTP/1.1 200 OK</div><div class="line">ETag: W/&quot;158-1192590101000&quot;</div><div class="line">Last-Modified: Wed, 17 Oct 2007 03:01:41 GMT</div><div class="line">Content-Type: text/html</div><div class="line">Content-Length: 158</div><div class="line">Date: Wed, 17 Oct 2007 03:01:59 GMT</div><div class="line">Server: Apache-Coyote/1.1</div></pre></td></tr></table></figure>
+<h2 id="http的状态响应码"><a href="#http的状态响应码" class="headerlink" title="http的状态响应码:"></a>http的状态响应码:</h2><h3 id="1-：请求收到，继续处理"><a href="#1-：请求收到，继续处理" class="headerlink" title="1**：请求收到，继续处理"></a>1**：请求收到，继续处理</h3><p>100——客户必须继续发出请求</p>
+<p>101——客户要求服务器根据请求转换HTTP协议版本</p>
+<h3 id="2-：操作成功收到，分析、接受"><a href="#2-：操作成功收到，分析、接受" class="headerlink" title="2**：操作成功收到，分析、接受"></a>2**：操作成功收到，分析、接受</h3><p><code>200——交易成功</code></p>
+<p>201——提示知道新文件的URL</p>
+<p>202——接受和处理、但处理未完成</p>
+<p>203——返回信息不确定或不完整</p>
+<p>204——请求收到，但返回信息为空</p>
+<p>205——服务器完成了请求，用户代理必须复位当前已经浏览过的文件</p>
+<p>206——服务器已经完成了部分用户的GET请求</p>
+<h3 id="3-：完成此请求必须进一步处理"><a href="#3-：完成此请求必须进一步处理" class="headerlink" title="3**：完成此请求必须进一步处理"></a>3**：完成此请求必须进一步处理</h3><p>300——请求的资源可在多处得到</p>
+<p>301——删除请求数据</p>
+<p><code>302——在其他地址发现了请求数据</code></p>
+<p>303——建议客户访问其他URL或访问方式</p>
+<p><code>304——客户端已经执行了GET，但文件未变化</code></p>
+<p>305——请求的资源必须从服务器指定的地址得到</p>
+<p>306——前一版本HTTP中使用的代码，现行版本中不再使用</p>
+<p>307——申明请求的资源临时性删除</p>
+<h3 id="4-：请求包含一个错误语法或不能完成"><a href="#4-：请求包含一个错误语法或不能完成" class="headerlink" title="4**：请求包含一个错误语法或不能完成"></a>4**：请求包含一个错误语法或不能完成</h3><p>400——错误请求，如语法错误</p>
+<p>401——未授权</p>
+<p>401.1 - 未授权：登录失败</p>
+<p>401.2 - 未授权：服务器配置问题导致登录失败</p>
+<p>401.3 - ACL 禁止访问资源</p>
+<p>401.4 - 未授权：授权被筛选器拒绝</p>
+<p>401.5 - 未授权：ISAPI 或 CGI 授权失败</p>
+<p>402——保留有效ChargeTo头响应</p>
+<p>403——禁止访问</p>
+<p>403.1 禁止访问：禁止可执行访问</p>
+<p>403.2 - 禁止访问：禁止读访问</p>
+<p>403.3 - 禁止访问：禁止写访问</p>
+<p>403.4 - 禁止访问：要求 SSL</p>
+<p>403.5 - 禁止访问：要求 SSL 128</p>
+<p>403.6 - 禁止访问：IP 地址被拒绝</p>
+<p>403.7 - 禁止访问：要求客户证书</p>
+<p>403.8 - 禁止访问：禁止站点访问</p>
+<p>403.9 - 禁止访问：连接的用户过多</p>
+<p>403.10 - 禁止访问：配置无效</p>
+<p>403.11 - 禁止访问：密码更改</p>
+<p>403.12 - 禁止访问：映射器拒绝访问</p>
+<p>403.13 - 禁止访问：客户证书已被吊销</p>
+<p>403.15 - 禁止访问：客户访问许可过多</p>
+<p>403.16 - 禁止访问：客户证书不可信或者无效</p>
+<p>403.17 - 禁止访问：客户证书已经到期或者尚未生效</p>
+<p><code>404——没有发现文件、查询或URl</code></p>
+<p>405——用户在Request-Line字段定义的方法不允许</p>
+<p>406——根据用户发送的Accept拖，请求资源不可访问</p>
+<p>407——类似401，用户必须首先在代理服务器上得到授权</p>
+<p>408——客户端没有在用户指定的饿时间内完成请求</p>
+<p>409——对当前资源状态，请求不能完成</p>
+<p>410——服务器上不再有此资源且无进一步的参考地址</p>
+<p>411——服务器拒绝用户定义的Content-Length属性请求</p>
+<p>412——一个或多个请求头字段在当前请求中错误</p>
+<p>413——请求的资源大于服务器允许的大小</p>
+<p>414——请求的资源URL长于服务器允许的长度</p>
+<p>415——请求资源不支持请求项目格式</p>
+<p>416——请求中包含Range请求头字段，在当前请求资源范围内没有range指示值，请求也不包含If-<br>Range请求头字段</p>
+<p>417——服务器不满足请求Expect头字段指定的期望值，如果是代理服务器，可能是下一级服务器不能满足请求长</p>
+<h3 id="5-：服务器执行一个完全有效请求失败"><a href="#5-：服务器执行一个完全有效请求失败" class="headerlink" title="5**：服务器执行一个完全有效请求失败"></a>5**：服务器执行一个完全有效请求失败</h3><p><code>500 - 内部服务器错误</code></p>
+<p>500.100 - 内部服务器错误 - ASP 错误</p>
+<p>500-11 服务器关闭</p>
+<p>500-12 应用程序重新启动</p>
+<p>500-13 - 服务器太忙</p>
+<p>500-14 - 应用程序无效</p>
+<p>500-15 - 不允许请求 global.asa</p>
+<p>501 - 未实现</p>
+<p><code>502 - 网关错误</code></p>
+<h2 id="使用telnet进行http测试"><a href="#使用telnet进行http测试" class="headerlink" title="使用telnet进行http测试"></a>使用telnet进行http测试</h2><p>在Windows下，可使用命令窗口进行http简单测试。</p>
+<p>输入cmd进入命令窗口，在命令行键入如下命令后按回车：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">telnet www.baidu.com 80</div></pre></td></tr></table></figure>
+<p>而后在窗口中按下“Ctrl+]”后按回车可让返回结果回显。</p>
+<p>接着开始发请求消息，例如发送如下请求消息请求baidu的首页消息，使用的HTTP协议为HTTP/1.1：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">GET /index.html HTTP/1.1</div></pre></td></tr></table></figure>
+<p>注意：copy如上的消息到命令窗口后需要按两个回车换行才能得到响应的消息，第一个回车换行是在命令后键入回车换行，是HTTP协议要求的。第二个是确认输入，发送请求。</p>
+<p>可看到返回了200 OK的消息，如下图所示：</p>
+<p><img src="../Images/02-就业班-02-39.jpg" alt=""></p>
+<p>可看到，当采用HTTP/1.1时，连接不是在请求结束后就断开的。若采用HTTP1.0，在命令窗口键入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">GET /index.html HTTP/1.0</div></pre></td></tr></table></figure>
+<p>此时可以看到请求结束之后马上断开。</p>
+<p>读者还可以尝试在使用GET或POST等时，带上头域信息，例如键入如下信息：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">GET /index.html HTTP/1.1</div><div class="line">connection: close</div><div class="line">Host: www.baidu.com</div></pre></td></tr></table></figure>
+<h2 id="常用的请求方式是GET和POST"><a href="#常用的请求方式是GET和POST" class="headerlink" title="常用的请求方式是GET和POST"></a>常用的请求方式是GET和POST</h2><ul>
+<li><p>GET方式：是以实体的方式得到由请求URI所指定资源的信息，如果请求URI只是一个数据产生过程，那么最终要在响应实体中返回的是处理过程的结果所指向的资源，而不是处理过程的描述。</p>
+</li>
+<li><p>POST方式：用来向目的服务器发出请求，要求它接受被附在请求后的实体，并把它当作请求队列中请求URI所指定资源的附加新子项，Post被设计成用统一的方法实现下列功能：</p>
+<ol>
+<li>对现有资源的解释；</li>
+<li>向电子公告栏、新闻组、邮件列表或类似讨论组发信息；</li>
+<li>提交数据块；</li>
+<li>通过附加操作来扩展数据库 。</li>
+</ol>
+</li>
+</ul>
+<p>从上面描述可以看出，Get是向服务器发索取数据的一种请求；而Post是向服务器提交数据的一种请求，要提交的数据位于信息头后面的实体中。</p>
+<p>GET与POST方法有以下区别：</p>
+<ol>
+<li>在客户端，Get方式在通过URL提交数据，数据在URL中可以看到；POST方式，数据放置在HTML HEADER内提交。</li>
+<li>GET方式提交的数据最多只能有1024字节，而POST则没有此限制。</li>
+<li>安全性问题。正如在（1）中提到，使用 Get 的时候，参数会显示在地址栏上，而 Post 不会。所以，如果这些数据是中文数据而且是非敏感数据，那么使用 get；如果用户输入的数据不是中文字符而且包含敏感数据，那么还是使用 post为好。</li>
+<li>安全的和幂等的。所谓安全的意味着该操作用于获取信息而非修改信息。幂等的意味着对同一 URL 的多个请求应该返回同样的结果。完整的定义并不像看起来那样严格。换句话说，GET 请求一般不应产生副作用。从根本上讲，其目标是当用户打开一个链接时，她可以确信从自身的角度来看没有改变资源。比如，新闻站点的头版不断更新。虽然第二次请求会返回不同的一批新闻，该操作仍然被认为是安全的和幂等的，因为它总是返回当前的新闻。反之亦然。POST 请求就不那么轻松了。POST 表示可能改变服务器上的资源的请求。仍然以新闻站点为例，读者对文章的注解应该通过 POST 请求实现，因为在注解提交之后站点已经不同了（比方说文章下面出现一条注解）。</li>
+</ol>
+<h2 id="请求头"><a href="#请求头" class="headerlink" title="请求头"></a>请求头</h2><p>HTTP最常见的请求头如下：</p>
+<ul>
+<li>Accept：浏览器可接受的MIME类型；</li>
+<li>Accept-Charset：浏览器可接受的字符集；</li>
+<li>Accept-Encoding：浏览器能够进行解码的数据编码方式，比如gzip。Servlet能够向支持gzip的浏览器返回经gzip编码的HTML页面。许多情形下这可以减少5到10倍的下载时间；</li>
+<li>Accept-Language：浏览器所希望的语言种类，当服务器能够提供一种以上的语言版本时要用到；</li>
+<li>Authorization：授权信息，通常出现在对服务器发送的WWW-Authenticate头的应答中；</li>
+<li>Connection：表示是否需要持久连接。如果Servlet看到这里的值为“Keep-Alive”，或者看到请求使用的是HTTP 1.1（HTTP 1.1默认进行持久连接），它就可以利用持久连接的优点，当页面包含多个元素时（例如Applet，图片），显著地减少下载所需要的时间。要实现这一点，Servlet需要在应答中发送一个Content-Length头，最简单的实现方法是：先把内容写入ByteArrayOutputStream，然后在正式写出内容之前计算它的大小；</li>
+<li>Content-Length：表示请求消息正文的长度；</li>
+<li>Cookie：这是最重要的请求头信息之一；</li>
+<li>From：请求发送者的email地址，由一些特殊的Web客户程序使用，浏览器不会用到它；</li>
+<li>Host：初始URL中的主机和端口；</li>
+<li>If-Modified-Since：只有当所请求的内容在指定的日期之后又经过修改才返回它，否则返回304“Not Modified”应答；</li>
+<li>Pragma：指定“no-cache”值表示服务器必须返回一个刷新后的文档，即使它是代理服务器而且已经有了页面的本地拷贝；</li>
+<li>Referer：包含一个URL，用户从该URL代表的页面出发访问当前请求的页面。</li>
+<li>User-Agent：浏览器类型，如果Servlet返回的内容与浏览器类型有关则该值非常有用；</li>
+<li>UA-Pixels，UA-Color，UA-OS，UA-CPU：由某些版本的IE浏览器所发送的非标准的请求头，表示屏幕大小、颜色深度、操作系统和CPU类型。</li>
+</ul>
+<h2 id="响应头"><a href="#响应头" class="headerlink" title="响应头"></a>响应头</h2><p>HTTP最常见的响应头如下所示：</p>
+<ul>
+<li>Allow：服务器支持哪些请求方法（如GET、POST等）；</li>
+<li>Content-Encoding：文档的编码（Encode）方法。只有在解码之后才可以得到Content-Type头指定的内容类型。利用gzip压缩文档能够显著地减少HTML文档的下载时间。Java的GZIPOutputStream可以很方便地进行gzip压缩，但只有Unix上的Netscape和Windows上的IE 4、IE 5才支持它。因此，Servlet应该通过查看Accept-Encoding头（即request.getHeader(“Accept-Encoding”)）检查浏览器是否支持gzip，为支持gzip的浏览器返回经gzip压缩的HTML页面，为其他浏览器返回普通页面；</li>
+<li>Content-Length：表示内容长度。只有当浏览器使用持久HTTP连接时才需要这个数据。如果你想要利用持久连接的优势，可以把输出文档写入ByteArrayOutputStram，完成后查看其大小，然后把该值放入Content-Length头，最后通过byteArrayStream.writeTo(response.getOutputStream()发送内容；</li>
+<li>Content-Type： 表示后面的文档属于什么MIME类型。Servlet默认为text/plain，但通常需要显式地指定为text/html。由于经常要设置Content-Type，因此HttpServletResponse提供了一个专用的方法setContentTyep。 可在web.xml文件中配置扩展名和MIME类型的对应关系；</li>
+<li>Date：当前的GMT时间。你可以用setDateHeader来设置这个头以避免转换时间格式的麻烦；</li>
+<li>Expires：指明应该在什么时候认为文档已经过期，从而不再缓存它。</li>
+<li>Last-Modified：文档的最后改动时间。客户可以通过If-Modified-Since请求头提供一个日期，该请求将被视为一个条件GET，只有改动时间迟于指定时间的文档才会返回，否则返回一个304（Not Modified）状态。Last-Modified也可用setDateHeader方法来设置；</li>
+<li>Location：表示客户应当到哪里去提取文档。Location通常不是直接设置的，而是通过HttpServletResponse的sendRedirect方法，该方法同时设置状态代码为302；</li>
+<li>Refresh：表示浏览器应该在多少时间之后刷新文档，以秒计。除了刷新当前文档之外，你还可以通过<code>setHeader(&quot;Refresh&quot;, &quot;5; URL=http://host/path&quot;)</code>让浏览器读取指定的页面。注意这种功能通常是通过设置HTML页面HEAD区的<code>&lt;META HTTP-EQUIV=&quot;Refresh&quot; CONTENT=&quot;5;URL=http://host/path&quot;&gt;</code>实现，这是因为，自动刷新或重定向对于那些不能使用CGI或Servlet的HTML编写者十分重要。但是，对于Servlet来说，直接设置Refresh头更加方便。注意Refresh的意义是“N秒之后刷新本页面或访问指定页面”，而不是“每隔N秒刷新本页面或访问指定页面”。因此，连续刷新要求每次都发送一个Refresh头，而发送204状态代码则可以阻止浏览器继续刷新，不管是使用Refresh头还是<meta http-equiv="Refresh" ...="">。注意Refresh头不属于HTTP 1.1正式规范的一部分，而是一个扩展，但Netscape和IE都支持它。</li>
+</ul>
+<h2 id="实体头"><a href="#实体头" class="headerlink" title="实体头"></a>实体头</h2><p>实体头用坐实体内容的元信息，描述了实体内容的属性，包括实体信息类型，长度，压缩方法，最后一次修改时间，数据有效性等。</p>
+<ul>
+<li>Allow：GET,POST</li>
+<li>Content-Encoding：文档的编码（Encode）方法，例如：gzip，见“2.5 响应头”；</li>
+<li>Content-Language：内容的语言类型，例如：zh-cn；</li>
+<li>Content-Length：表示内容长度，eg：80，可参考“2.5响应头”；</li>
+<li>Content-Location：表示客户应当到哪里去提取文档，例如：<code>http://www.dfdf.org/dfdf.html</code>，可参考“2.5响应头”；</li>
+<li>Content-MD5：MD5 实体的一种MD5摘要，用作校验和。发送方和接受方都计算MD5摘要，接受方将其计算的值与此头标中传递的值进行比较。Eg1：Content-MD5: <base64 128="" of="" md5="" digest="">。Eg2：dfdfdfdfdfdfdff==；</base64></li>
+<li>Content-Range：随部分实体一同发送；标明被插入字节的低位与高位字节偏移，也标明此实体的总长度。Eg1：Content-Range: 1001-2000/5000，eg2：bytes 2543-4532/7898</li>
+<li>Content-Type：标明发送或者接收的实体的MIME类型。Eg：text/html; charset=GB2312       主类型/子类型；</li>
+<li>Expires：为0证明不缓存；</li>
+<li>Last-Modified：WEB 服务器认为对象的最后修改时间，比如文件的最后修改时间，动态页面的最后产生时间等等。例如：Last-Modified：Tue, 06 May 2008 02:42:43 GMT.</li>
+</ul>
+<h2 id="扩展头"><a href="#扩展头" class="headerlink" title="扩展头"></a>扩展头</h2><p>在HTTP消息中，也可以使用一些再HTTP1.1正式规范里没有定义的头字段，这些头字段统称为自定义的HTTP头或者扩展头，他们通常被当作是一种实体头处理。<br>现在流行的浏览器实际上都支持Cookie,Set-Cookie,Refresh和Content-Disposition等几个常用的扩展头字段。</p>
+<ul>
+<li>Refresh：1;url=<a href="http://www.dfdf.org" target="_blank" rel="external">http://www.dfdf.org</a>  //过1秒跳转到指定位置；</li>
+<li>Content-Disposition：头字段,可参考“2.5响应头”；</li>
+<li>Content-Type：WEB 服务器告诉浏览器自己响应的对象的类型。<br>eg1：Content-Type：application/xml ；<br>eg2：applicaiton/octet-stream；</li>
+</ul>
+<h2 id="Cookie和Session"><a href="#Cookie和Session" class="headerlink" title="Cookie和Session"></a>Cookie和Session</h2><p>Cookie和Session都为了用来保存状态信息，都是保存客户端状态的机制，它们都是为了解决HTTP无状态的问题而所做的努力。</p>
+<p>Session可以用Cookie来实现，也可以用URL回写的机制来实现。用Cookie来实现的Session可以认为是对Cookie更高级的应用。</p>
+<p>Cookie和Session有以下明显的不同点：</p>
+<ol>
+<li>Cookie将状态保存在客户端，Session将状态保存在服务器端；</li>
+<li>Cookies是服务器在本地机器上存储的小段文本并随每一个请求发送至同一个服务器。Cookie最早在RFC2109中实现，后续RFC2965做了增强。网络服务器用HTTP头向客户端发送cookies，在客户终端，浏览器解析这些cookies并将它们保存为一个本地文件，它会自动将同一服务器的任何请求缚上这些cookies。Session并没有在HTTP的协议中定义；</li>
+<li>Session是针对每一个用户的，变量的值保存在服务器上，用一个sessionID来区分是哪个用户session变量,这个值是通过用户的浏览器在访问的时候返回给服务器，当客户禁用cookie时，这个值也可能设置为由get来返回给服务器；</li>
+<li>就安全性来说：当你访问一个使用session 的站点，同时在自己机子上建立一个cookie，建议在服务器端的SESSION机制更安全些.因为它不会任意读取客户存储的信息。</li>
+</ol>
+<h3 id="Session机制"><a href="#Session机制" class="headerlink" title="Session机制"></a>Session机制</h3><p>Session机制是一种服务器端的机制，服务器使用一种类似于散列表的结构（也可能就是使用散列表）来保存信息。<br>当程序需要为某个客户端的请求创建一个session的时候，服务器首先检查这个客户端的请求里是否已包含了一个session标识 - 称为 session id，如果已包含一个session id则说明以前已经为此客户端创建过session，服务器就按照session id把这个 session检索出来使用（如果检索不到，可能会新建一个），如果客户端请求不包含session id，则为此客户端创建一个session并且生成一个与此session相关联的session id，session id的值应该是一个既不会重复，又不容易被找到规律以仿造的字符串，这个 session id将被在本次响应中返回给客户端保存。</p>
+<h3 id="Session的实现方式-之-使用Cookie来实现"><a href="#Session的实现方式-之-使用Cookie来实现" class="headerlink" title="Session的实现方式 之 使用Cookie来实现"></a>Session的实现方式 之 使用Cookie来实现</h3><p>服务器给每个Session分配一个唯一的JSESSIONID，并通过Cookie发送给客户端。</p>
+<p>当客户端发起新的请求的时候，将在Cookie头中携带这个JSESSIONID。这样服务器能够找到这个客户端对应的Session。</p>
+<p>流程如下图所示：</p>
+<p><img src="../Images/02-就业班-02-40.jpg" alt=""></p>
+<h3 id="Session的实现方式-之-使用URL回显来实现"><a href="#Session的实现方式-之-使用URL回显来实现" class="headerlink" title="Session的实现方式 之 使用URL回显来实现"></a>Session的实现方式 之 使用URL回显来实现</h3><p>URL回写是指服务器在发送给浏览器页面的所有链接中都携带JSESSIONID的参数，这样客户端点击任何一个链接都会把JSESSIONID带会服务器。</p>
+<p>如果直接在浏览器输入服务端资源的url来请求该资源，那么Session是匹配不到的。</p>
+<p>Tomcat对Session的实现，是一开始同时使用Cookie和URL回写机制，如果发现客户端支持Cookie，就继续使用Cookie，停止使用URL回写。如果发现Cookie被禁用，就一直使用URL回写。jsp开发处理到Session的时候，对页面中的链接记得使用response.encodeURL() 。</p>
+<h3 id="与Cookie相关的HTTP扩展头"><a href="#与Cookie相关的HTTP扩展头" class="headerlink" title="与Cookie相关的HTTP扩展头"></a>与Cookie相关的HTTP扩展头</h3><ol>
+<li>Cookie：客户端将服务器设置的Cookie返回到服务器；</li>
+<li>Set-Cookie：服务器向客户端设置Cookie；</li>
+<li>Cookie2 (RFC2965)）：客户端指示服务器支持Cookie的版本；</li>
+<li>Set-Cookie2 (RFC2965)：服务器向客户端设置Cookie。</li>
+</ol>
+<h3 id="Cookie的流程"><a href="#Cookie的流程" class="headerlink" title="Cookie的流程"></a>Cookie的流程</h3><p>服务器在响应消息中用Set-Cookie头将Cookie的内容回送给客户端，客户端在新的请求中将相同的内容携带在Cookie头中发送给服务器。从而实现会话的保持。</p>
+<p>流程如下图所示：</p>
+<p><img src="../Images/02-就业班-02-41.jpg" alt=""></p>
+<h2 id="缓存的实现原理"><a href="#缓存的实现原理" class="headerlink" title="缓存的实现原理"></a>缓存的实现原理</h2><h3 id="什么是Web缓存"><a href="#什么是Web缓存" class="headerlink" title="什么是Web缓存"></a>什么是Web缓存</h3><p>WEB缓存(cache)位于Web服务器和客户端之间。</p>
+<p>缓存会根据请求保存输出内容的副本，例如html页面，图片，文件，当下一个请求来到的时候：如果是相同的URL，缓存直接使用副本响应访问请求，而不是向源服务器再次发送请求。</p>
+<p>HTTP协议定义了相关的消息头来使WEB缓存尽可能好的工作。</p>
+<h3 id="缓存的优点"><a href="#缓存的优点" class="headerlink" title="缓存的优点"></a>缓存的优点</h3><p>减少相应延迟：因为请求从缓存服务器（离客户端更近）而不是源服务器被相应，这个过程耗时更少，让web服务器看上去相应更快。</p>
+<p>减少网络带宽消耗：当副本被重用时会减低客户端的带宽消耗；客户可以节省带宽费用，控制带宽的需求的增长并更易于管理。</p>
+<h3 id="与缓存相关的HTTP扩展消息头"><a href="#与缓存相关的HTTP扩展消息头" class="headerlink" title="与缓存相关的HTTP扩展消息头"></a>与缓存相关的HTTP扩展消息头</h3><ul>
+<li>Expires：指示响应内容过期的时间，格林威治时间GMT</li>
+<li>Cache-Control：更细致的控制缓存的内容</li>
+<li>Last-Modified：响应中资源最后一次修改的时间</li>
+<li>ETag：响应中资源的校验值，在服务器上某个时段是唯一标识的。</li>
+<li>Date：服务器的时间</li>
+<li>If-Modified-Since：客户端存取的该资源最后一次修改的时间，同Last-Modified。</li>
+<li>If-None-Match：客户端存取的该资源的检验值，同ETag。</li>
+</ul>
+<h3 id="客户端缓存生效的常见流程"><a href="#客户端缓存生效的常见流程" class="headerlink" title="客户端缓存生效的常见流程"></a>客户端缓存生效的常见流程</h3><p>服务器收到请求时，会在200OK中回送该资源的Last-Modified和ETag头，客户端将该资源保存在cache中，并记录这两个属性。当客户端需要发送相同的请求时，会在请求中携带If-Modified-Since和If-None-Match两个头。两个头的值分别是响应中Last-Modified和ETag头的值。服务器通过这两个头判断本地资源未发生变化，客户端不需要重新下载，返回304响应。常见流程如下图所示：</p>
+<p><img src="../Images/02-就业班-02-42.jpg" alt=""></p>
+<h3 id="Web缓存机制"><a href="#Web缓存机制" class="headerlink" title="Web缓存机制"></a>Web缓存机制</h3><p>HTTP/1.1中缓存的目的是为了在很多情况下减少发送请求，同时在许多情况下可以不需要发送完整响应。前者减少了网络回路的数量；HTTP利用一个“过期（expiration）”机制来为此目的。后者减少了网络应用的带宽；HTTP用“验证（validation）”机制来为此目的。<br>HTTP定义了3种缓存机制：</p>
+<ul>
+<li>Freshness：允许一个回应消息可以在源服务器不被重新检查，并且可以由服务器和客户端来控制。例如，Expires回应头给了一个文档不可用的时间。Cache-Control中的max-age标识指明了缓存的最长时间；</li>
+<li>Validation：用来检查以一个缓存的回应是否仍然可用。例如，如果一个回应有一个Last-Modified回应头，缓存能够使用If-Modified-Since来判断是否已改变，以便判断根据情况发送请求；</li>
+<li>Invalidation： 在另一个请求通过缓存的时候，常常有一个副作用。例如，如果一个URL关联到一个缓存回应，但是其后跟着POST、PUT和DELETE的请求的话，缓存就会过期。</li>
+</ul>
+<h1 id="断点续传和多线程下载的实现原理"><a href="#断点续传和多线程下载的实现原理" class="headerlink" title="断点续传和多线程下载的实现原理"></a>断点续传和多线程下载的实现原理</h1><ul>
+<li>HTTP协议的GET方法，支持只请求某个资源的某一部分；</li>
+<li>206 Partial Content 部分内容响应；</li>
+<li>Range 请求的资源范围；</li>
+<li>Content-Range 响应的资源范围；</li>
+<li>在连接断开重连时，客户端只请求该资源未下载的部分，而不是重新请求整个资源，来实现断点续传。</li>
+</ul>
+<p>分块请求资源实例：<br>Eg1：Range: bytes=306302- ：请求这个资源从306302个字节到末尾的部分；<br>Eg2：Content-Range: bytes 306302-604047/604048：响应中指示携带的是该资源的第306302-604047的字节，该资源共604048个字节；<br>客户端通过并发的请求相同资源的不同片段，来实现对某个资源的并发分块下载。从而达到快速下载的目的。目前流行的FlashGet和迅雷基本都是这个原理。</p>
+<p>多线程下载的原理：</p>
+<ul>
+<li>下载工具开启多个发出HTTP请求的线程；</li>
+<li>每个http请求只请求资源文件的一部分：Content-Range: bytes 20000-40000/47000；</li>
+<li>合并每个线程下载的文件。</li>
+</ul>
+<h1 id="什么是https"><a href="#什么是https" class="headerlink" title="什么是https"></a>什么是https</h1><p>HTTPS（全称：Hypertext Transfer Protocol over Secure Socket Layer），是以安全为目标的HTTP通道，简单讲是HTTP的安全版。即HTTP下加入SSL层，HTTPS的安全基础是SSL，因此加密的详细内容请看SSL。</p>
+<p>见下图：</p>
+<p><img src="../Images/02-就业班-02-37.jpg" alt=""></p>
+<h1 id="https的实现原理"><a href="#https的实现原理" class="headerlink" title="https的实现原理"></a>https的实现原理</h1><p>有两种基本的加解密算法类型：</p>
+<ol>
+<li>对称加密：密钥只有一个，加密解密为同一个密码，且加解密速度快，典型的对称加密算法有DES、AES等；</li>
+<li>非对称加密：密钥成对出现（且根据公钥无法推知私钥，根据私钥也无法推知公钥），加密解密使用不同密钥（公钥加密需要私钥解密，私钥加密需要公钥解密），相对对称加密速度较慢，典型的非对称加密算法有RSA、DSA等。</li>
+</ol>
+<p>下面看一下https的通信过程：</p>
+<p><img src="../Images/02-就业班-02-43.jpg" alt=""></p>
+<p>https通信的优点：</p>
+<ol>
+<li>客户端产生的密钥只有客户端和服务器端能得到；</li>
+<li>加密的数据只有客户端和服务器端才能得到明文；</li>
+<li>客户端到服务端的通信是安全的。</li>
+</ol>
+<h1 id="http代理"><a href="#http代理" class="headerlink" title="http代理"></a>http代理</h1><h3 id="http代理服务器"><a href="#http代理服务器" class="headerlink" title="http代理服务器"></a>http代理服务器</h3><p>代理服务器英文全称是Proxy Server，其功能就是代理网络用户去取得网络信息。形象的说：它是网络信息的中转站。</p>
+<p>代理服务器是介于浏览器和Web服务器之间的一台服务器，有了它之后，浏览器不是直接到Web服务器去取回网页而是向代理服务器发出请求，Request信号会先送到代理服务器，由代理服务器来取回浏览器所需要的信息并传送给你的浏览器。</p>
+<p>而且，大部分代理服务器都具有缓冲的功能，就好象一个大的Cache，它有很大的存储空间，它不断将新取得数据储存到它本机的存储器上，如果浏览器所请求的数据在它本机的存储器上已经存在而且是最新的，那么它就不重新从Web服务器取数据，而直接将存储器上的数据传送给用户的浏览器，这样就能显著提高浏览速度和效率。</p>
+<p>更重要的是：Proxy Server(代理服务器)是Internet链路级网关所提供的一种重要的安全功能，它的工作主要在开放系统互联(OSI)模型的对话层。</p>
+<h3 id="http代理服务器的主要功能"><a href="#http代理服务器的主要功能" class="headerlink" title="http代理服务器的主要功能"></a>http代理服务器的主要功能</h3><p>主要功能如下：</p>
+<ol>
+<li>突破自身IP访问限制，访问国外站点。如：教育网、169网等网络用户可以通过代理访问国外网站；</li>
+<li>访问一些单位或团体内部资源，如某大学FTP(前提是该代理地址在该资源的允许访问范围之内)，使用教育网内地址段免费代理服务器，就可以用于对教育 网开放的各类FTP下载上传，以及各类资料查询共享等服务；</li>
+<li>突破中国电信的IP封锁：中国电信用户有很多网站是被限制访问的，这种限制是人为的，不同Serve对地址的封锁是不同的。所以不能访问时可以换一个国 外的代理服务器试试；</li>
+<li>提高访问速度：通常代理服务器都设置一个较大的硬盘缓冲区，当有外界的信息通过时，同时也将其保存到缓冲区中，当其他用户再访问相同的信息时， 则直接由缓冲区中取出信息，传给用户，以提高访问速度；</li>
+<li>隐藏真实IP：上网者也可以通过这种方法隐藏自己的IP，免受攻击。</li>
+</ol>
+<h3 id="http代理图示"><a href="#http代理图示" class="headerlink" title="http代理图示"></a>http代理图示</h3><p>http代理的图示见下图：</p>
+<p><img src="../Images/02-就业班-02-44.jpg" alt=""></p>
+<p>对于客户端浏览器而言，http代理服务器相当于服务器。</p>
+<p>而对于Web服务器而言，http代理服务器又担当了客户端的角色。</p>
+
+          </section>
+        </article>
+        
+
+       
+        <div class="pager">
+          
+          
+            <a class="post-next pager-item" href="/2017/02/14/东哥的第一个python/">
+              <strong class="article-nav-caption">下一篇</strong>
+              <p class="post-nav-title">东哥的第一个python</p>
+            </a>
+          
+        </div>
+        
+
+         <!-- comments -->
+        <div class="comment-section">
+  
+    
+
+
+</div>
+
+    </div>
+    
+    <aside>
+        <div id="toc">
+        </div>
+    </aside>
+    
+</div>
+
+                </div>
+            </div>
+        </div>
+        <footer class="footer">
+    <p>由<a href="http://hexo.io/" target="_blank">Hexo</a>强力驱动，搭载<a href="https://github.com/wayou/hexo-theme-gstyle">gstyle</a>主题</p>
+    <p>
+        &copy; 2017 dongGe
+    </p>
+</footer>
+<script src="/lib/jquery.js"></script>
+<script src="/lib/waves.js"></script>
+<script src="/lib/jquery-ui.js"></script>
+<script src="/lib/jquery.tocify.js"></script>
+<script src="/js/main.js"></script>
+
+    </body>
+</html>

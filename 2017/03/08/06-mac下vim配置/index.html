@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+          <head>
+        <meta charset="utf-8">
+            
+            <title>
+                mac下vim配置 | Howdoit
+            </title>
+            <meta content="width=device-width, initial-scale=1" name="viewport">
+            <meta name="theme-color" content="#4184f3">
+            
+            
+            <link href="/favicon.ico" rel="icon"/>
+            
+
+            <link rel="stylesheet" href="/css/highlight.light.css">
+            <link rel="stylesheet" href="/css/prism-customize.css">
+            <link rel="stylesheet" href="/css/nav-icon.css">
+            <link rel="stylesheet" href="/css/waves.min.css">
+            <link rel="stylesheet" href="/css/jquery.tocify.css">
+            <link rel="stylesheet" href="/css/main.css">
+            <link rel="stylesheet" href="/css/nav-indicator.css">
+            </meta>
+        </meta>
+    </head>
+
+    <body>
+        <header>
+            <!-- cover image or sth. -->
+        </header>
+        <div id="main" class="m-scene">
+            
+<div class="nav-wrapper">
+
+    <div class="container">
+        <nav>
+            <div class="logo wave">
+                <a href="/" id="logo">
+                    Howdoit
+                </a>
+            </div>
+            <div class="nav-toggle-icon" >
+                <div class="material-hamburger">
+                    <span>
+                    </span>
+                    <span>
+                    </span>
+                    <span>
+                    </span>
+                </div>
+            </div>
+            <div class="menu-wrapper">
+                <div class="nav-indicator">
+                </div>
+                <ul class="menus">
+                    
+                     
+                        <li>
+                            <a class="wave " href="/categories/Python">
+                                Python
+                            </a>
+                        </li>
+                     
+                    
+                   
+                </ul>
+            </div>
+        </nav>
+    </div>
+</div>
+            <div class="container content">
+                <div class="scene_element scene_element--fadein">
+                    <div class="row">
+    <div class="main">
+        <article>
+          
+          <header class="post-header">
+          
+          </header>
+          <h1 class="post-title">mac下vim配置</h1>
+
+          <section class="post-info">
+            <span class="post-date">2017/03/08</span>
+            
+            <span class="post-category">
+                <a class="article-category-link" href="/categories/Python/">Python</a>
+            </span>
+            
+            
+          </section>
+
+          <section class="post-content">
+            <h2 id="1-配置文件的创建"><a href="#1-配置文件的创建" class="headerlink" title="1. 配置文件的创建"></a>1. 配置文件的创建</h2><p>vim 在Mac电脑下的配置和Linux下的一样，只是配置的路径不一样</p>
+<h3 id="Liunx下"><a href="#Liunx下" class="headerlink" title="Liunx下"></a>Liunx下</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim 的配置是在/etc 的vimrc 的配置目录下</div></pre></td></tr></table></figure>
+<h3 id="Mac下"><a href="#Mac下" class="headerlink" title="Mac下"></a>Mac下</h3><p>vim 的配置路径如下：</p>
+<p>拷贝默认的配置文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cp  /usr/share/vim/vimrc  ~/.vimrc</div></pre></td></tr></table></figure>
+<h2 id="2-配置vimrc文件"><a href="#2-配置vimrc文件" class="headerlink" title="2. 配置vimrc文件"></a>2. 配置vimrc文件</h2><p>以下配置能够让vim完成基本功能</p>
+<p>打开该文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim  ～/.vimrc</div></pre></td></tr></table></figure>
+<p>在文件的加入以下的配置信息:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">set showmatch         &quot; 高亮显示对应的括号</div><div class="line"></div><div class="line">set number            &quot; 显示行号</div><div class="line"></div><div class="line">set cindent           &quot; C风格的对齐方式</div><div class="line"></div><div class="line">set autoindent        &quot; 自动对齐</div><div class="line"></div><div class="line">set confirm           &quot; 在处理未保存或只读文件的时候，弹出确认</div><div class="line"></div><div class="line">set tabstop=4         &quot; Tab键的宽度</div><div class="line"></div><div class="line">syntax on             &quot; 自动语法高亮</div><div class="line"></div><div class="line">set softtabstop=4</div><div class="line"></div><div class="line">set shiftwidth=4      &quot;  统一缩进为4</div><div class="line"></div><div class="line">set hlsearch		  &quot; 行搜索高亮</div><div class="line"></div><div class="line">set incsearch         &quot; 搜索逐字符高亮</div><div class="line"></div><div class="line">&quot;colorscheme torte    &quot; 设置颜色主题</div><div class="line"></div><div class="line">set completeopt=preview,menu  &quot;代码补全</div><div class="line"></div><div class="line">set clipboard+=unnamed	&quot;共享剪贴板</div></pre></td></tr></table></figure>
+<h2 id="3-配置颜色"><a href="#3-配置颜色" class="headerlink" title="3. 配置颜色"></a>3. 配置颜色</h2><p>颜色方案:blue<br><img src="/img/vim配置颜色/blue.png" alt=""></p>
+<p>颜色方案:darkblue<br><img src="/img/vim配置颜色/darkblue.png" alt=""></p>
+<p>颜色方案:default<br><img src="/img/vim配置颜色/default.png" alt=""></p>
+<p>颜色方案:delek<br><img src="/img/vim配置颜色/delek.png" alt=""></p>
+<p>颜色方案:desert<br><img src="/img/vim配置颜色/desert.png" alt=""></p>
+<p>颜色方案:elflord<br><img src="/img/vim配置颜色/elflord.png" alt=""></p>
+<p>颜色方案:evening<br><img src="/img/vim配置颜色/evening.png" alt=""></p>
+<p>颜色方案:industry<br><img src="/img/vim配置颜色/industry.png" alt=""></p>
+<p>颜色方案:koehler<br><img src="/img/vim配置颜色/koehler.png" alt=""></p>
+<p>颜色方案:morning<br><img src="/img/vim配置颜色/morning.png" alt=""></p>
+<p>颜色方案:murphy<br><img src="/img/vim配置颜色/murphy.png" alt=""></p>
+<p>颜色方案:pablo<br><img src="/img/vim配置颜色/pablo.png" alt=""></p>
+<p>颜色方案:peachpuff<br><img src="/img/vim配置颜色/peachpuff.png" alt=""></p>
+<p>颜色方案:ron<br><img src="/img/vim配置颜色/ron.png" alt=""></p>
+<p>颜色方案:shine<br><img src="/img/vim配置颜色/shine.png" alt=""></p>
+<p>颜色方案:slate<br><img src="/img/vim配置颜色/slate.png" alt=""></p>
+<p>颜色方案:torte<br><img src="/img/vim配置颜色/torte.png" alt=""></p>
+<p>颜色方案:zellner<br><img src="/img/vim配置颜色/zellner.png" alt=""></p>
+<p>首先：在终端输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ls /usr/share/vim/vim74/colors</div></pre></td></tr></table></figure>
+<p>查看是否有上面提到的某些配色，所有配色均是以.vim结束的，如果有的话，再输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ cd ~/</div></pre></td></tr></table></figure>
+<p>到用户主目录，然后输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ vim .vimrc</div></pre></td></tr></table></figure>
+<p>创建配置文件，将vim的内容设置如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">set nu </div><div class="line">colorscheme industry </div><div class="line">syntax on</div></pre></td></tr></table></figure>
+<p>即配置好industry.vim这种主题方案了，如果想使用其他主题方案，就把industry换成对应的名字就ok啦～～～<br>下面开始愉快的使用vim编程吧！！！</p>
+
+          </section>
+        </article>
+        
+
+       
+        <div class="pager">
+          
+          
+            <a class="post-next pager-item" href="/2017/03/05/05-super/">
+              <strong class="article-nav-caption">下一篇</strong>
+              <p class="post-nav-title">python中super的使用</p>
+            </a>
+          
+        </div>
+        
+
+         <!-- comments -->
+        <div class="comment-section">
+  
+    
+
+
+</div>
+
+    </div>
+    
+    <aside>
+        <div id="toc">
+        </div>
+    </aside>
+    
+</div>
+
+                </div>
+            </div>
+        </div>
+        <footer class="footer">
+    <p>由<a href="http://hexo.io/" target="_blank">Hexo</a>强力驱动，搭载<a href="https://github.com/wayou/hexo-theme-gstyle">gstyle</a>主题</p>
+    <p>
+        &copy; 2017 dongGe
+    </p>
+    
+  
+
+  
+
+  
+  <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1261300516'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/stat.php%3Fid%3D1261300516' type='text/javascript'%3E%3C/script%3E"));</script>
+  
+</footer>
+<script src="/lib/jquery.js"></script>
+<script src="/lib/waves.js"></script>
+<script src="/lib/jquery-ui.js"></script>
+<script src="/lib/jquery.tocify.js"></script>
+<script src="/js/main.js"></script>
+
+
+    </body>
+</html>

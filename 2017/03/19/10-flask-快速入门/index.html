@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+          <head>
+        <meta charset="utf-8">
+            
+            <title>
+                flask-快速入门 | Howdoit
+            </title>
+            <meta content="width=device-width, initial-scale=1" name="viewport">
+            <meta name="theme-color" content="#4184f3">
+            
+            
+            <link href="/favicon.ico" rel="icon"/>
+            
+
+            <link rel="stylesheet" href="/css/highlight.light.css">
+            <link rel="stylesheet" href="/css/prism-customize.css">
+            <link rel="stylesheet" href="/css/nav-icon.css">
+            <link rel="stylesheet" href="/css/waves.min.css">
+            <link rel="stylesheet" href="/css/jquery.tocify.css">
+            <link rel="stylesheet" href="/css/main.css">
+            <link rel="stylesheet" href="/css/nav-indicator.css">
+            </meta>
+        </meta>
+    </head>
+
+    <body>
+        <header>
+            <!-- cover image or sth. -->
+        </header>
+        <div id="main" class="m-scene">
+            
+<div class="nav-wrapper">
+
+    <div class="container">
+        <nav>
+            <div class="logo wave">
+                <a href="/" id="logo">
+                    Howdoit
+                </a>
+            </div>
+            <div class="nav-toggle-icon" >
+                <div class="material-hamburger">
+                    <span>
+                    </span>
+                    <span>
+                    </span>
+                    <span>
+                    </span>
+                </div>
+            </div>
+            <div class="menu-wrapper">
+                <div class="nav-indicator">
+                </div>
+                <ul class="menus">
+                    
+                     
+                        <li>
+                            <a class="wave " href="/categories/Python">
+                                Python
+                            </a>
+                        </li>
+                     
+                        <li>
+                            <a class="wave " href="/categories/cpp">
+                                cpp
+                            </a>
+                        </li>
+                     
+                        <li>
+                            <a class="wave " href="/categories/股票">
+                                股票
+                            </a>
+                        </li>
+                     
+                    
+                   
+                </ul>
+            </div>
+        </nav>
+    </div>
+</div>
+            <div class="container content">
+                <div class="scene_element scene_element--fadein">
+                    <div class="row">
+    <div class="main">
+        <article>
+          
+          <header class="post-header">
+          
+          </header>
+          <h1 class="post-title">flask-快速入门</h1>
+
+          <section class="post-info">
+            <span class="post-date">2017/03/19</span>
+            
+            <span class="post-category">
+                <a class="article-category-link" href="/categories/Python/">Python</a>
+            </span>
+            
+            
+          </section>
+
+          <section class="post-content">
+            <h2 id="一-Flask前言"><a href="#一-Flask前言" class="headerlink" title="(一)Flask前言"></a>(一)Flask前言</h2><h3 id="Flask框架的特点"><a href="#Flask框架的特点" class="headerlink" title="Flask框架的特点"></a>Flask框架的特点</h3><ul>
+<li>其他框架</li>
+</ul>
+<p>大型框架替你做了很多事，同时也限定了你处理问题的方式，比如你只能用一些指定的数据库引擎或者用户授权的方法，要采用其他实现方式会遇到很大的困难。</p>
+<ul>
+<li>Flask框架</li>
+</ul>
+<p>Flask框架被设计成易于扩展的形式，除了一个强壮的内核，基本上所有的功能都要用第三方的扩展来实现。比如数据库，你可以选择NoSQL数据库、可以选择自己开发的数据库，甚至不用数据库。其他的扩展也是如此，你可以任意选择或者自己开发。</p>
+<p>上述说的Flask的好处，你也从另一个方面来理解，使用大型框架比如Django来做一些快速的开发、常规的解决方案会很方便，而使用Flask意味着什么你都要自己去挑选，这对于开发经验尚且欠缺的人来说是个灾难。</p>
+<h2 id="二-第1章-Flask框架的安装和配置"><a href="#二-第1章-Flask框架的安装和配置" class="headerlink" title="(二)第1章 Flask框架的安装和配置"></a>(二)第1章 Flask框架的安装和配置</h2><h3 id="1-轻吹Flask"><a href="#1-轻吹Flask" class="headerlink" title="1. 轻吹Flask"></a>1. 轻吹Flask</h3><p>Flask框架很小，但强壮的内核加上丰富的扩展几乎能满足你所有需求。Flask有两个主要的依赖库：Werkzeug和Jinja2，它们都是由Flask核心的开发人员开发的。与其他大型框架不同的是，Flask自身不支持数据库、表单验证、用户授权等复杂的任务，而需要集成其他的扩展，作为一个开发者你需要挑选最合适你项目的扩展。</p>
+<p>安装Flask之前你需要安装Python，为了更好的和本书保持一致推荐使用v2.7或者v3.3。</p>
+<h3 id="2-安装Flask"><a href="#2-安装Flask" class="headerlink" title="2. 安装Flask"></a>2. 安装Flask</h3><p>Python的多数包（包含Flask）都可以用pip进行安装，可以使用如下命令直接安装Flask：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo pip install flask</div></pre></td></tr></table></figure>
+<p>安装过程中的提示信息如下：<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">Collecting flask</div><div class="line">  Downloading Flask-0.12-py2.py3-none-any.whl (82kB)</div><div class="line">    100% |████████████████████████████████| 92kB 233kB/s</div><div class="line">Collecting itsdangerous&gt;=0.21 (from flask)</div><div class="line">  Downloading itsdangerous-0.24.tar.gz (46kB)</div><div class="line">    100% |████████████████████████████████| 51kB 365kB/s</div><div class="line">Collecting Werkzeug&gt;=0.7 (from flask)</div><div class="line">  Downloading Werkzeug-0.12.1-py2.py3-none-any.whl (312kB)</div><div class="line">    100% |████████████████████████████████| 317kB 353kB/s</div><div class="line">Requirement already satisfied: Jinja2&gt;=2.4 in /Library/Python/2.7/site-packages (from flask)</div><div class="line">Collecting click&gt;=2.0 (from flask)</div><div class="line">  Downloading click-6.7-py2.py3-none-any.whl (71kB)</div><div class="line">    100% |████████████████████████████████| 71kB 246kB/s</div><div class="line">Requirement already satisfied: MarkupSafe&gt;=0.23 in /Library/Python/2.7/site-packages (from Jinja2&gt;=2.4-&gt;flask)</div><div class="line">Installing collected packages: itsdangerous, Werkzeug, click, flask</div><div class="line">  Running setup.py install for itsdangerous ... done</div><div class="line">Successfully installed Werkzeug-0.12.1 click-6.7 flask-0.12 itsdangerous-0.24</div></pre></td></tr></table></figure></p>
+<p>只要看到Successfully就意味着成功了，可以在python(注意pip安装到python2中，pip3会安装到python3中)交互中导入flask试验一下</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">In [<span class="number">1</span>]: <span class="keyword">import</span> flask</div><div class="line"></div><div class="line">In [<span class="number">2</span>]:</div></pre></td></tr></table></figure>
+<h2 id="三-第2章-Flask应用的基本结构"><a href="#三-第2章-Flask应用的基本结构" class="headerlink" title="(三)第2章 Flask应用的基本结构"></a>(三)第2章 Flask应用的基本结构</h2><h3 id="1-初始化应用示例"><a href="#1-初始化应用示例" class="headerlink" title="1. 初始化应用示例"></a>1. 初始化应用示例</h3><p>Web服务器使用WSGI协议（Web Server Gateway Interface protocol）将所有从客户端接收到的请求传递给应用实例，这个应用实例就是一个Flask对象，通常用如下方式进行创建：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> flask <span class="keyword">import</span></div><div class="line">Flask app = Flask(__name__)</div></pre></td></tr></table></figure>
+<p>关于Flask中参数的说明：Flask的构造函数只接收一个参数<strong>name</strong>，它会指向该程序片段所在的模块。目前只需要知道使用<strong>name</strong>就够了。</p>
+<h3 id="2-路由和视图函数"><a href="#2-路由和视图函数" class="headerlink" title="2. 路由和视图函数"></a>2. 路由和视图函数</h3><p>路由的作用就是将请求地址和方法关联起来，最简单的做法是通过使用应用程序实例的decorator app.route来定义一个路由:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="meta">@app.route('/')</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">index</span><span class="params">()</span>:</span></div><div class="line">    <span class="keyword">return</span> <span class="string">'&lt;h1&gt;Hello World!&lt;/h1&gt;'</span></div></pre></td></tr></table></figure>
+<p>很多路由上是要求能传递参数的，我们可以在路由上是配置动态参数：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@app.route('/user/&lt;name&gt;')</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">user</span><span class="params">(name)</span>:</span></div><div class="line">    <span class="keyword">return</span> <span class="string">'&lt;h1&gt;Hello, %s!&lt;/h1&gt;'</span> % name</div></pre></td></tr></table></figure>
+<p>在上例中，尖括号中间的内容是动态的，任何匹配了该形式的URL会映射到这个路由上，然后调用对应的视图方法。默认的，传递的参数被当做string处理，当然你也可以指定它们的类型，比如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@app.route('/user/&lt;int:id&gt;')</span></div></pre></td></tr></table></figure>
+<h3 id="3-启动Server"><a href="#3-启动Server" class="headerlink" title="3. 启动Server"></a>3. 启动Server</h3><p>应用程序实例app有一个run方法用于启动Flask所集成的Web服务器：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    app.run(debug=<span class="keyword">True</span>)</div></pre></td></tr></table></figure>
+<p>上述代码是一个常见的Python语法，if判定条件是为了保证只有该脚本被直接执行的时候才去启动server，因为如果该脚本是被当做模块引入的，那么很可能在其他的脚本中已经启动过server了。启动过后server会一直轮巡检查是否收到有客户端的请求，可以通过Ctrl+C 停止server。run方法有一些可选参数可以配置，比如设置debug=True能够开启调试模式。</p>
+<h4 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h4><ul>
+<li>Flask提供的Web服务器不是给产品环境用的</li>
+</ul>
+<h3 id="4-完整的示例代码"><a href="#4-完整的示例代码" class="headerlink" title="4. 完整的示例代码"></a>4. 完整的示例代码</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask</div><div class="line"></div><div class="line">app = Flask(__name__)</div><div class="line"></div><div class="line"><span class="meta">@app.route('/')</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">index</span><span class="params">()</span>:</span></div><div class="line">    <span class="keyword">return</span> <span class="string">'&lt;h1&gt;Hello World!&lt;/h1&gt;'</span></div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    app.run(debug=<span class="keyword">True</span>)</div></pre></td></tr></table></figure>
+<p>如果将上面的代码保存到<code>01-hello.py</code>文件中，然后运行它</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">localhost:Flask dongge$ python <span class="number">01</span>-hello.py</div><div class="line"> * Running on http://<span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">5000</span>/ (Press CTRL+C to quit)</div><div class="line"> * Restarting <span class="keyword">with</span> stat</div><div class="line"> * Debugger <span class="keyword">is</span> active!</div><div class="line"> * Debugger PIN: <span class="number">280</span><span class="number">-655</span><span class="number">-339</span></div></pre></td></tr></table></figure>
+<p>浏览器访问:<code>localhost:5000</code></p>
+<p><img src="/img/Flask_img/Snip20170319_3.png" alt=""></p>
+<h3 id="5-应用与请求的上下文"><a href="#5-应用与请求的上下文" class="headerlink" title="5. 应用与请求的上下文"></a>5. 应用与请求的上下文</h3><p>Flask接受来自客户端的请求的时候需要构建一些对象给视图方法使用，比如request对象</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> request</div><div class="line"></div><div class="line"><span class="meta">@app.route('/')</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">index</span><span class="params">()</span>:</span></div><div class="line">    user_agent = request.headers.get(<span class="string">'User-Agent'</span>)</div><div class="line">    <span class="keyword">return</span> <span class="string">'&lt;p&gt;Your browser is %s&lt;/p&gt;'</span> % user_agent</div></pre></td></tr></table></figure>
+<p><img src="/img/Flask_img/Snip20170319_4.png" alt=""></p>
+<h3 id="6-方法映射关系"><a href="#6-方法映射关系" class="headerlink" title="6. 方法映射关系"></a>6. 方法映射关系</h3><p>当客户端的请求来到时，我们需要找到对应的service方法（视图方法）来处理它，Flask会通过在URL map中查找当前请求URL来找到对应的service。Flask构建的map的值是由 app.route decorators和等价的nondecorator版本 app.add_url_url 初始的。</p>
+<p>我们可以查看一下在hello.py中这个map长什么样：</p>
+<p>将<code>01-hello.py</code>拷贝一份叫做<code>test.py</code>然后执行，如下操作：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">In [1]: from test import app</div><div class="line"></div><div class="line">In [2]: app.url_map</div><div class="line">Out[2]:</div><div class="line">Map([&lt;Rule '/' (HEAD, OPTIONS, GET) -&gt; index&gt;,</div><div class="line"> &lt;Rule '/static/&lt;filename&gt;' (HEAD, OPTIONS, GET) -&gt; static&gt;])</div><div class="line"></div><div class="line">In [3]:</div></pre></td></tr></table></figure>
+<h3 id="7-钩子函数"><a href="#7-钩子函数" class="headerlink" title="7. 钩子函数"></a>7. 钩子函数</h3><p>我们通常希望请求前、后可能希望做一些通用的处理，在Flask中可以使用一些钩子函数来达到这个目的，Flask提供了四个钩子函数，含义很好理解：</p>
+<ul>
+<li>before_first_request</li>
+<li>before_request</li>
+<li>after_request</li>
+<li>teardown_request</li>
+</ul>
+<p>钩子函数的一个典型的应用场景是：在第一次请求中通过before_first_request来获取到用户数据存储到Context中，以后请求就可以直接从Context中直接取用户数据了。</p>
+<h3 id="8-给返回字符串带状态码"><a href="#8-给返回字符串带状态码" class="headerlink" title="8. 给返回字符串带状态码"></a>8. 给返回字符串带状态码</h3><p>返回给前台的数据除了可以是一个字符串，还可以携带第二个参数，下例中除了返回字符串还返回了一个400的状态码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@app.route('/')</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">index</span><span class="params">()</span>:</span></div><div class="line">    <span class="keyword">return</span> <span class="string">'&lt;h1&gt;Bad Request&lt;/h1&gt;'</span>, <span class="number">400</span></div></pre></td></tr></table></figure>
+<h3 id="9-显式使用response"><a href="#9-显式使用response" class="headerlink" title="9. 显式使用response"></a>9. 显式使用response</h3><p>你甚至还可以添加第三个参数来给response的headers添加一些设置，但是更好的做法是直接返回一个response对象。如下的例子用make_response方法构建了一个response并设置了cookie：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> make_response</div><div class="line"><span class="meta">@app.route('/')</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">index</span><span class="params">()</span>:</span></div><div class="line">    response = make_response(<span class="string">'&lt;h1&gt;This document carries a cookie!&lt;/h1&gt;'</span>)</div><div class="line">    response.set_cookie(<span class="string">'answer'</span>, <span class="string">'42'</span>)</div><div class="line">    <span class="keyword">return</span> response</div></pre></td></tr></table></figure>
+<h3 id="10-redirect"><a href="#10-redirect" class="headerlink" title="10.redirect"></a>10.redirect</h3><p>redirect是一种特殊的response，通常带有302状态码，它不包含具体的response内容而是提供一个新的URL给浏览器来加载。你能够通过 using a three-value return (注：原书内容如此不大理解含义) 或者通过response对象的方式来进行redirect，但是最通用的做法还是使用Flask提供的redirect()方法来构建redirect类型的response：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> redirect</div><div class="line"><span class="meta">@app.route('/')</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">index</span><span class="params">()</span>:</span></div><div class="line">    <span class="keyword">return</span> redirect(<span class="string">'http://www.example.com'</span>)</div></pre></td></tr></table></figure>
+<h3 id="11-abort"><a href="#11-abort" class="headerlink" title="11. abort"></a>11. abort</h3><p>有一中特殊的response是用abort来生成的，通常被用来做错误处理。如下的例子，当根据动态参数id没有查询到相应的user的时候，会返回404的状态码。尽管abort没有返回结果，但它通过raise exception的方式跳出了处理的流程：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> abort</div><div class="line"><span class="meta">@app.route('/user/&lt;id&gt;')</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_user</span><span class="params">(id)</span>:</span></div><div class="line">    user = load_user(id)</div><div class="line">    <span class="keyword">if</span> <span class="keyword">not</span> user:</div><div class="line">        abort(<span class="number">404</span>)</div><div class="line">    <span class="keyword">return</span> <span class="string">'&lt;p&gt;Hello, %s&lt;/p&gt;'</span> % user.name</div></pre></td></tr></table></figure>
+<h2 id="四-第3章-模板"><a href="#四-第3章-模板" class="headerlink" title="(四)第3章 模板"></a>(四)第3章 模板</h2><p>*视图:方法有两个作用：<code>处理业务逻辑（比如操作数据库）</code>和 <code>返回响应内容</code>。</p>
+<p>*模板:起到了将两者分开管理的作用，本章介绍模板引擎Jinjia2</p>
+<h3 id="1-Jinjia2模板引擎"><a href="#1-Jinjia2模板引擎" class="headerlink" title="1. Jinjia2模板引擎"></a>1. Jinjia2模板引擎</h3><p>模板只是一些包含文本的字符串，设置的变量标记位最终会被模板引擎用数据渲染。要使用Jinjia2模板，第一步是定义模板，Jinjia2默然会到项目的子目录templates中寻找模板，所以在该目录下定义两个模板文件：</p>
+<p>新建一个文件夹<code>templates</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mkdir templates</div></pre></td></tr></table></figure></p>
+<p>在这个文件夹中新建2个文件</p>
+<p><code>templates/index.hml</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;h1&gt;hello world&lt;/h1&gt;</div></pre></td></tr></table></figure>
+<p><code>templates/user.html</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;h1&gt;Hello &#123;&#123;name&#125;&#125;!&lt;/h1&gt;</div></pre></td></tr></table></figure>
+<h3 id="2-渲染模板"><a href="#2-渲染模板" class="headerlink" title="2. 渲染模板"></a>2. 渲染模板</h3><p>创一个文件<code>03-hello.py</code>, 导入模板渲染方法<code>render_template</code>，然后调用该方法注入模板。<code>render_template</code>方法的第一个参数是模板文件名称，后面的参数是在模板中会被引用到的变量：</p>
+<p><code>03-渲染模板.py</code>完成代码如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask, render_template</div><div class="line"></div><div class="line">app = Flask(__name__)</div><div class="line"></div><div class="line"><span class="meta">@app.route('/')</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">index</span><span class="params">()</span>:</span></div><div class="line">	<span class="keyword">return</span> render_template(<span class="string">'index.html'</span>)</div><div class="line"></div><div class="line"><span class="meta">@app.route('/user/&lt;name&gt;')</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">user</span><span class="params">(name)</span>:</span></div><div class="line">	<span class="keyword">return</span> render_template(<span class="string">'user.html'</span>, name=name)</div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</div><div class="line">	app.run(debug=<span class="keyword">True</span>)</div></pre></td></tr></table></figure>
+<h3 id="3-变量类型"><a href="#3-变量类型" class="headerlink" title="3. 变量类型"></a>3. 变量类型</h3><p>模板中不仅能使用字符串数字等简单的数据类型，还能接收复杂的数据结构，比如dict、list、obj，然后你可以在模板中通过如下的形式来使用这些变量：</p>
+<p><code>templates/vars.html</code></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;p&gt;A value from a dictionary: &#123;&#123; mydict['key'] &#125;&#125;.&lt;/p&gt;</div><div class="line">&lt;p&gt;A value from a list: &#123;&#123; mylist[3] &#125;&#125;.&lt;/p&gt;</div><div class="line">&lt;p&gt;A value from a list, with a variable index: &#123;&#123; mylist[myintvar] &#125;&#125;.&lt;/p&gt;</div><div class="line">&lt;p&gt;A value from an object's method: &#123;&#123; myobj.somemethod() &#125;&#125;.&lt;/p&gt;</div></pre></td></tr></table></figure>
+<p><code>04-模板变量.py</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Human</span><span class="params">()</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">somemethod</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">return</span> <span class="string">'what the fucking world!'</span></div><div class="line"></div><div class="line"><span class="meta">@app.route('/vars')</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">user</span><span class="params">(name)</span>:</span></div><div class="line">    mydict = &#123;<span class="string">"key"</span>: <span class="string">"To Be or Not To Be"</span>&#125;</div><div class="line">    mylist = [<span class="string">'it'</span>, <span class="string">'is'</span>, <span class="string">'a'</span>, <span class="string">'problem'</span>]</div><div class="line">    myintvar = <span class="number">0</span></div><div class="line">    myobj = Human()</div><div class="line"></div><div class="line">    <span class="keyword">return</span> render_template(<span class="string">'vars.html'</span>, mydict=mydict, mylist=mylist, myintvar=myintvar, myobj=myobj)</div></pre></td></tr></table></figure>
+<p><img src="/img/Flask_img/Snip20170319_5.png" alt=""></p>
+<p>除了使用复杂的数据结构以外，模板中还能对值进行过滤，下面是一个简单的将内容变为大写的例子。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Hello, &#123;&#123; name|capitalize &#125;&#125;</div></pre></td></tr></table></figure>
+<p><img src="/img/Flask_img/134602-04c5abf058b1f8aa.png" alt=""></p>
+<h3 id="4-控制结构"><a href="#4-控制结构" class="headerlink" title="4. 控制结构"></a>4. 控制结构</h3><p>Jinjia2能够使用常见的控制流，如下是常用的几种控制流</p>
+<h4 id="4-1-if-else"><a href="#4-1-if-else" class="headerlink" title="4.1. if else"></a>4.1. if else</h4><p><code>hello.py</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@app.route('/flow')</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">flow</span><span class="params">()</span>:</span></div><div class="line">    user = <span class="string">'tangyefei'</span></div><div class="line">    <span class="keyword">return</span> render_template(<span class="string">'flow.html'</span>, user=user)</div></pre></td></tr></table></figure>
+<p><code>templates/flow.html</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;% if user %&#125;</div><div class="line">    Hello, &#123;&#123;user&#125;&#125;</div><div class="line">&#123;% else %&#125;</div><div class="line">    Hello, stranger</div><div class="line">&#123;% endif %&#125;</div></pre></td></tr></table></figure>
+<h4 id="4-2-for"><a href="#4-2-for" class="headerlink" title="4.2. for"></a>4.2. for</h4><p><code>hello.py</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@app.route('/loop')</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">loop</span><span class="params">()</span>:</span></div><div class="line">    comments = [<span class="string">"To Be"</span>, <span class="string">"Or"</span>, <span class="string">"Not To Be"</span>]</div><div class="line"></div><div class="line">    <span class="keyword">return</span> render_template(<span class="string">'loop.html'</span>, comments=comments)</div></pre></td></tr></table></figure>
+<p><code>templates/loop.html</code></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;ul&gt;</div><div class="line">   &#123;% for comment in comments%&#125;</div><div class="line">        &lt;li&gt;&#123;&#123;comment&#125;&#125;&lt;/li&gt;</div><div class="line">    &#123;% endfor %&#125;</div><div class="line">&lt;/ul&gt;</div></pre></td></tr></table></figure>
+<h3 id="5-macro"><a href="#5-macro" class="headerlink" title="5. macro"></a>5. macro</h3><p>我们可以把部分模板渲染内容抽到macro，其他的地方可以调用macro方法进行渲染</p>
+<p><code>hello.py</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@app.route('/macro')</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">macro</span><span class="params">()</span>:</span></div><div class="line">    comments = [<span class="string">"To Be"</span>, <span class="string">"Or"</span>, <span class="string">"Not To Be"</span>]</div><div class="line">    <span class="keyword">return</span> render_template(<span class="string">'macro.html'</span>, comments=comments)</div></pre></td></tr></table></figure>
+<p><code>templates/macro.html</code></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&#123;% macro render_comment(comment) %&#125;</div><div class="line">    &lt;li&gt;&#123;&#123;comment&#125;&#125;&lt;/li&gt;</div><div class="line">&#123;% endmacro %&#125;</div><div class="line">&lt;ul&gt;</div><div class="line">    &#123;% for comment in comments%&#125;</div><div class="line">        &#123;&#123; macro.render_comment(comment) &#125;&#125;</div><div class="line">    &#123;% endfor %&#125;</div><div class="line">&lt;/ul&gt;</div></pre></td></tr></table></figure>
+<h3 id="6-外部导入Macro"><a href="#6-外部导入Macro" class="headerlink" title="6. 外部导入Macro"></a>6. 外部导入Macro</h3><p><code>hello.py</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@app.route('/comments')</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">comments</span><span class="params">()</span>:</span></div><div class="line">    comments = [<span class="string">"To Be"</span>, <span class="string">"Or"</span>, <span class="string">"Not To Be"</span>]</div><div class="line">    <span class="keyword">return</span> render_template(<span class="string">'comments.html'</span>, comments=comments)</div></pre></td></tr></table></figure>
+<p><code>templates/macro.html</code></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#123;% macro render_comment(comment) %&#125;</div><div class="line">    &lt;li&gt;&#123;&#123;comment&#125;&#125;&lt;/li&gt;</div><div class="line">&#123;% endmacro %&#125;</div></pre></td></tr></table></figure>
+<p><code>templates/comments.html</code></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&#123;% import 'macro.html' as macros %&#125;</div><div class="line">&lt;ul&gt;</div><div class="line">     &#123;% for comment in comments%&#125;</div><div class="line">        &#123;&#123; macros.render_comment(comment) &#125;&#125;</div><div class="line">    &#123;% endfor %&#125;</div><div class="line">&lt;/ul&gt;</div></pre></td></tr></table></figure>
+<h3 id="7-模板继承"><a href="#7-模板继承" class="headerlink" title="7. 模板继承"></a>7. 模板继承</h3><p><code>hello.py</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@app.route('/extends')</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">extends</span><span class="params">()</span>:</span></div><div class="line">    <span class="keyword">return</span> render_template(<span class="string">'child.html'</span>)</div></pre></td></tr></table></figure>
+<p><code>/templates/base.html</code></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></div><div class="line">    &#123;% block head%&#125;</div><div class="line">        <span class="tag">&lt;<span class="name">title</span>&gt;</span></div><div class="line">            &#123;% block title%&#125;&#123;% endblock%&#125;- My Application</div><div class="line">        <span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">    &#123;% endblock %&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">    &#123;% block body%&#125;</div><div class="line">    &#123;% endblock%&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+<p><code>/templates/child.html</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&#123;% extends &apos;base.html&apos;%&#125;</div><div class="line">&#123;% block title%&#125;</div><div class="line">    Index</div><div class="line">&#123;% endblock %&#125;</div><div class="line">&#123;% block head%&#125;</div><div class="line">    &#123;&#123; super() &#125;&#125;</div><div class="line">    &lt;style&gt;</div><div class="line">    &lt;/style&gt;</div><div class="line">&#123;% endblock%&#125;</div><div class="line">&#123;% block body%&#125;</div><div class="line">    &lt;h1&gt;Helll, World!&lt;/h1&gt;</div><div class="line">&#123;% endblock%&#125;</div></pre></td></tr></table></figure>
+          </section>
+        </article>
+        
+
+       
+        <div class="pager">
+          
+          
+            <a class="post-next pager-item" href="/2017/03/16/09-python-类装饰器/">
+              <strong class="article-nav-caption">下一篇</strong>
+              <p class="post-nav-title">python-类装饰器</p>
+            </a>
+          
+        </div>
+        
+
+         <!-- comments -->
+        <div class="comment-section">
+  
+    
+
+
+</div>
+
+    </div>
+    
+    <aside>
+        <div id="toc">
+        </div>
+    </aside>
+    
+</div>
+
+                </div>
+            </div>
+        </div>
+        <footer class="footer">
+    <p>由<a href="http://hexo.io/" target="_blank">Hexo</a>强力驱动，搭载<a href="https://github.com/wayou/hexo-theme-gstyle">gstyle</a>主题</p>
+    <p>
+        &copy; 2017 dongGe
+    </p>
+    
+  
+
+  
+
+  
+  <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1261300516'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/stat.php%3Fid%3D1261300516' type='text/javascript'%3E%3C/script%3E"));</script>
+  
+</footer>
+<script src="/lib/jquery.js"></script>
+<script src="/lib/waves.js"></script>
+<script src="/lib/jquery-ui.js"></script>
+<script src="/lib/jquery.tocify.js"></script>
+<script src="/js/main.js"></script>
+
+
+    </body>
+</html>

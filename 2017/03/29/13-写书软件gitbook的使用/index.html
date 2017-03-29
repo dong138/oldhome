@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+          <head>
+        <meta charset="utf-8">
+            
+            <title>
+                gitbook的使用 | Howdoit
+            </title>
+            <meta content="width=device-width, initial-scale=1" name="viewport">
+            <meta name="theme-color" content="#4184f3">
+            
+            
+            <link href="/favicon.ico" rel="icon"/>
+            
+
+            <link rel="stylesheet" href="/css/highlight.light.css">
+            <link rel="stylesheet" href="/css/prism-customize.css">
+            <link rel="stylesheet" href="/css/nav-icon.css">
+            <link rel="stylesheet" href="/css/waves.min.css">
+            <link rel="stylesheet" href="/css/jquery.tocify.css">
+            <link rel="stylesheet" href="/css/main.css">
+            <link rel="stylesheet" href="/css/nav-indicator.css">
+            </meta>
+        </meta>
+    </head>
+
+    <body>
+        <header>
+            <!-- cover image or sth. -->
+        </header>
+        <div id="main" class="m-scene">
+            
+<div class="nav-wrapper">
+
+    <div class="container">
+        <nav>
+            <div class="logo wave">
+                <a href="/" id="logo">
+                    Howdoit
+                </a>
+            </div>
+            <div class="nav-toggle-icon" >
+                <div class="material-hamburger">
+                    <span>
+                    </span>
+                    <span>
+                    </span>
+                    <span>
+                    </span>
+                </div>
+            </div>
+            <div class="menu-wrapper">
+                <div class="nav-indicator">
+                </div>
+                <ul class="menus">
+                    
+                     
+                        <li>
+                            <a class="wave " href="/categories/Python">
+                                Python
+                            </a>
+                        </li>
+                     
+                        <li>
+                            <a class="wave " href="/categories/c语言">
+                                c语言
+                            </a>
+                        </li>
+                     
+                        <li>
+                            <a class="wave " href="/categories/cpp">
+                                cpp
+                            </a>
+                        </li>
+                     
+                        <li>
+                            <a class="wave " href="/categories/股票">
+                                股票
+                            </a>
+                        </li>
+                     
+                        <li>
+                            <a class="wave " href="/categories/小众软件">
+                                小众软件
+                            </a>
+                        </li>
+                     
+                    
+                   
+                </ul>
+            </div>
+        </nav>
+    </div>
+</div>
+            <div class="container content">
+                <div class="scene_element scene_element--fadein">
+                    <div class="row">
+    <div class="main">
+        <article>
+          
+          <header class="post-header">
+          
+          </header>
+          <h1 class="post-title">gitbook的使用</h1>
+
+          <section class="post-info">
+            <span class="post-date">2017/03/29</span>
+            
+            <span class="post-category">
+                <a class="article-category-link" href="/categories/小众软件/">小众软件</a>
+            </span>
+            
+            
+          </section>
+
+          <section class="post-content">
+            <h2 id="gitbook的安装"><a href="#gitbook的安装" class="headerlink" title="gitbook的安装"></a>gitbook的安装</h2><h3 id="1-下载nodejs"><a href="#1-下载nodejs" class="headerlink" title="1. 下载nodejs"></a>1. 下载nodejs</h3><p>下载网址：<code>http://nodejs.cn/download/releases/</code></p>
+<p><img src="/img/小众软件/nodejs官网.png" alt=""></p>
+<p>根据自己的OS，选择合适的版本进行下载</p>
+<h3 id="2-安装nodejs"><a href="#2-安装nodejs" class="headerlink" title="2. 安装nodejs"></a>2. 安装nodejs</h3><p><img src="/img/小众软件/1.png" alt=""></p>
+<p><img src="/img/小众软件/2.png" alt=""></p>
+<p><img src="/img/小众软件/3.png" alt=""></p>
+<p><img src="/img/小众软件/4.png" alt=""></p>
+<p><img src="/img/小众软件/5.png" alt=""></p>
+<p><img src="/img/小众软件/6.png" alt=""></p>
+<p><img src="/img/小众软件/7.png" alt=""></p>
+<h2 id="安装gitbook"><a href="#安装gitbook" class="headerlink" title="安装gitbook"></a>安装gitbook</h2><p>安装按nodejs之后，就可以使用npm来安装gitbook了</p>
+<p>打开<code>终端</code>，输入如下命令，进行安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g gitbook-cli</div></pre></td></tr></table></figure>
+<p>注意不要用较新的版本，在gitbook3.0以上的版本中，不支持本次访问html版，只能使用gitbook serve开启本地服务器才行，但是如果需要把html版本共享给其他的用户的话，建议使用 gitbook的2.6.7版本</p>
+<p>查看gitbook所安装的版本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gitbook -V</div></pre></td></tr></table></figure>
+<p>查看已经安装的所有gitbook版本(一台电脑上可以安装多个版本)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gitbook ls</div></pre></td></tr></table></figure>
+<p>安装指定的版本（例如安装gitbook的2.6.7版）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gitbook fetch 2.6.7</div></pre></td></tr></table></figure>
+<p>如果想要卸载某个版本，命令如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gitbook uninstall 2.0.1</div></pre></td></tr></table></figure>
+<h2 id="使用gitbook"><a href="#使用gitbook" class="headerlink" title="使用gitbook"></a>使用gitbook</h2><h3 id="1-建立gitbook仓库"><a href="#1-建立gitbook仓库" class="headerlink" title="1. 建立gitbook仓库"></a>1. 建立gitbook仓库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gitbook init</div></pre></td></tr></table></figure>
+<h3 id="2-运行gitbook，会在本地自动搭建一个http服务器，可以通过浏览器访问"><a href="#2-运行gitbook，会在本地自动搭建一个http服务器，可以通过浏览器访问" class="headerlink" title="2. 运行gitbook，会在本地自动搭建一个http服务器，可以通过浏览器访问"></a>2. 运行gitbook，会在本地自动搭建一个http服务器，可以通过浏览器访问</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gitbook serve</div></pre></td></tr></table></figure>
+<p>打开浏览器，输入<code>localhost:4000</code>，就会看到效果</p>
+<p>在刚刚gitbook init的那个路径中通过Markdown来编辑文件，回到浏览器中即可看到编辑之后的效果了</p>
+<hr>
+<p>以上就是gitbook的安装以及简单使用教程，下面是英文的说明文档（来自github）</p>
+<hr>
+<h2 id="lt-附录-gt-gitbook-的说明文档"><a href="#lt-附录-gt-gitbook-的说明文档" class="headerlink" title="&lt;附录&gt;gitbook 的说明文档"></a>&lt;附录&gt;gitbook 的说明文档</h2><p><a href="http://badge.fury.io/js/gitbook-cli" target="_blank" rel="external"><img src="https://badge.fury.io/js/gitbook-cli.svg" alt="NPM version"></a><br><a href="https://travis-ci.org/GitbookIO/gitbook-cli" target="_blank" rel="external"><img src="https://travis-ci.org/GitbookIO/gitbook-cli.png?branch=master" alt="Linux Build Status"></a><br><a href="https://ci.appveyor.com/project/GitBook/gitbook-cli" target="_blank" rel="external"><img src="https://ci.appveyor.com/api/projects/status/gddbj0602joc4wah?svg=true" alt="Windows Build status"></a></p>
+<blockquote>
+<p>The GitBook command line interface.</p>
+</blockquote>
+<p>Install this globally and you’ll have access to the gitbook command anywhere on your system.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install -g gitbook-cli</div></pre></td></tr></table></figure>
+<p><strong>Note:</strong> The purpose of the gitbook command is to load and run the version of GitBook you have specified in your book (or the latest one), irrespective of its version. The GitBook CLI only support versions <code>&gt;=2.0.0</code> of GitBook.</p>
+<p><code>gitbook-cli</code> store GitBook’s versions into <code>~/.gitbook</code>, you can set the <code>GITBOOK_DIR</code> environment variable to use another directory.</p>
+<h3 id="How-to-install-it"><a href="#How-to-install-it" class="headerlink" title="How to install it?"></a>How to install it?</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install -g gitbook-cli</div></pre></td></tr></table></figure>
+<h3 id="How-to-use-it"><a href="#How-to-use-it" class="headerlink" title="How to use it?"></a>How to use it?</h3><h4 id="Run-GitBook"><a href="#Run-GitBook" class="headerlink" title="Run GitBook"></a>Run GitBook</h4><p>Run command <code>gitbook build</code>, <code>gitbook serve</code> (read <a href="https://github.com/GitbookIO/gitbook/blob/master/docs/setup.md" target="_blank" rel="external">GitBook documentation</a> for details).</p>
+<p>List all available commands using:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ gitbook help</div></pre></td></tr></table></figure></p>
+<h4 id="Specify-a-specific-version"><a href="#Specify-a-specific-version" class="headerlink" title="Specify a specific version"></a>Specify a specific version</h4><p>By default, GitBook CLI will read the gitbook version to use from the book configuration, but you can force a specific version using <code>--gitbook</code> option:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ gitbook build ./mybook --gitbook=2.0.1</div></pre></td></tr></table></figure>
+<p>and list available commands in this version using:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ gitbook help --gitbook=2.0.1</div></pre></td></tr></table></figure>
+<h4 id="Manage-versions"><a href="#Manage-versions" class="headerlink" title="Manage versions"></a>Manage versions</h4><p>List installed versions:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ gitbook ls</div></pre></td></tr></table></figure>
+<p>List available versions on NPM:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ gitbook ls-remote</div></pre></td></tr></table></figure>
+<p>Install a specific version:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ gitbook fetch 2.1.0</div><div class="line"></div><div class="line"># or a pre-release</div><div class="line"></div><div class="line">$ gitbook fetch beta</div></pre></td></tr></table></figure>
+<p>Update to the latest version</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ gitbook update</div></pre></td></tr></table></figure>
+<p>Uninstall a specific version</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ gitbook uninstall 2.0.1</div></pre></td></tr></table></figure>
+<p>Use a local folder as a GitBook version (for developement)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ gitbook alias ./mygitbook latest</div></pre></td></tr></table></figure>
+
+          </section>
+        </article>
+        
+
+       
+        <div class="pager">
+          
+          
+            <a class="post-next pager-item" href="/2017/03/26/12-C语言入门/">
+              <strong class="article-nav-caption">下一篇</strong>
+              <p class="post-nav-title">C语言入门</p>
+            </a>
+          
+        </div>
+        
+
+         <!-- comments -->
+        <div class="comment-section">
+  
+    
+
+
+</div>
+
+    </div>
+    
+    <aside>
+        <div id="toc">
+        </div>
+    </aside>
+    
+</div>
+
+                </div>
+            </div>
+        </div>
+        <footer class="footer">
+    <p>由<a href="http://hexo.io/" target="_blank">Hexo</a>强力驱动，搭载<a href="https://github.com/wayou/hexo-theme-gstyle">gstyle</a>主题</p>
+    <p>
+        &copy; 2017 dongGe
+    </p>
+    
+  
+
+  
+
+  
+  <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1261300516'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/stat.php%3Fid%3D1261300516' type='text/javascript'%3E%3C/script%3E"));</script>
+  
+</footer>
+<script src="/lib/jquery.js"></script>
+<script src="/lib/waves.js"></script>
+<script src="/lib/jquery-ui.js"></script>
+<script src="/lib/jquery.tocify.js"></script>
+<script src="/js/main.js"></script>
+
+
+    </body>
+</html>

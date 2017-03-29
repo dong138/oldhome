@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+          <head>
+        <meta charset="utf-8">
+            
+            <title>
+                mac开启ntfs功能 | Howdoit
+            </title>
+            <meta content="width=device-width, initial-scale=1" name="viewport">
+            <meta name="theme-color" content="#4184f3">
+            
+            
+            <link href="/favicon.ico" rel="icon"/>
+            
+
+            <link rel="stylesheet" href="/css/highlight.light.css">
+            <link rel="stylesheet" href="/css/prism-customize.css">
+            <link rel="stylesheet" href="/css/nav-icon.css">
+            <link rel="stylesheet" href="/css/waves.min.css">
+            <link rel="stylesheet" href="/css/jquery.tocify.css">
+            <link rel="stylesheet" href="/css/main.css">
+            <link rel="stylesheet" href="/css/nav-indicator.css">
+            </meta>
+        </meta>
+    </head>
+
+    <body>
+        <header>
+            <!-- cover image or sth. -->
+        </header>
+        <div id="main" class="m-scene">
+            
+<div class="nav-wrapper">
+
+    <div class="container">
+        <nav>
+            <div class="logo wave">
+                <a href="/" id="logo">
+                    Howdoit
+                </a>
+            </div>
+            <div class="nav-toggle-icon" >
+                <div class="material-hamburger">
+                    <span>
+                    </span>
+                    <span>
+                    </span>
+                    <span>
+                    </span>
+                </div>
+            </div>
+            <div class="menu-wrapper">
+                <div class="nav-indicator">
+                </div>
+                <ul class="menus">
+                    
+                     
+                        <li>
+                            <a class="wave " href="/categories/Python">
+                                Python
+                            </a>
+                        </li>
+                     
+                        <li>
+                            <a class="wave " href="/categories/c语言">
+                                c语言
+                            </a>
+                        </li>
+                     
+                        <li>
+                            <a class="wave " href="/categories/cpp">
+                                cpp
+                            </a>
+                        </li>
+                     
+                        <li>
+                            <a class="wave " href="/categories/股票">
+                                股票
+                            </a>
+                        </li>
+                     
+                        <li>
+                            <a class="wave " href="/categories/小众软件">
+                                小众软件
+                            </a>
+                        </li>
+                     
+                    
+                   
+                </ul>
+            </div>
+        </nav>
+    </div>
+</div>
+            <div class="container content">
+                <div class="scene_element scene_element--fadein">
+                    <div class="row">
+    <div class="main">
+        <article>
+          
+          <header class="post-header">
+          
+          </header>
+          <h1 class="post-title">mac开启ntfs功能</h1>
+
+          <section class="post-info">
+            <span class="post-date">2017/03/29</span>
+            
+            <span class="post-category">
+                <a class="article-category-link" href="/categories/小众软件/">小众软件</a>
+            </span>
+            
+            
+          </section>
+
+          <section class="post-content">
+            <p>最简单的方法就是把 OS X 自带的 mount_ntfs 默认加载方式从只读改成读写, 具体方法如下（# 开头的是注释，其他是需要输入的指令）</p>
+<h2 id="进入sbin目录"><a href="#进入sbin目录" class="headerlink" title="进入sbin目录"></a>进入sbin目录</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># 打开终端（Terminal）</div><div class="line"># 切换到 root 身份 (高危! 请切记自己在干什么)</div><div class="line">sudo -s</div><div class="line"># 进入 /sbin 目录</div><div class="line">cd /sbin</div></pre></td></tr></table></figure>
+<h2 id="将系统自带的挂载程序改名"><a href="#将系统自带的挂载程序改名" class="headerlink" title="将系统自带的挂载程序改名"></a>将系统自带的挂载程序改名</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mv mount_ntfs mount_ntfs_orig</div></pre></td></tr></table></figure>
+<h2 id="新建脚本mount-ntfs"><a href="#新建脚本mount-ntfs" class="headerlink" title="新建脚本mount_ntfs"></a>新建脚本mount_ntfs</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim mount_ntfs</div></pre></td></tr></table></figure>
+<h2 id="编辑mount-ntfs"><a href="#编辑mount-ntfs" class="headerlink" title="编辑mount_ntfs"></a>编辑mount_ntfs</h2><p>在新开的窗口里输入如下内容（如果不知道 vim 怎么用，先按一下 i 进入输入模式，把下面内容粘进去）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#!/bin/sh</div><div class="line">/sbin/mount_ntfs_orig -o rw,nobrowse &quot;$@&quot;</div></pre></td></tr></table></figure>
+<p>保存退出 （如果不知道 vim 怎么用，默认是按一下 Esc 键，然后输入 :wq 并回车）</p>
+<h2 id="修改权限"><a href="#修改权限" class="headerlink" title="修改权限"></a>修改权限</h2><p>改一下新挂载文件的权限</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">chmod a+x mount_ntfs</div></pre></td></tr></table></figure>
+<p>然后就可以跟用其他类型分区一样的随意用了</p>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>为了方便访问, 可以在 finder 里用 cmd+shift+G 打开跳转, 输 /Volumes 进入所有磁盘目录, 然后在用 cmd+control+T 将 /Volumes 保存到边栏</p>
+<h2 id="lt-问题解决方法-gt"><a href="#lt-问题解决方法-gt" class="headerlink" title="&lt;问题解决方法&gt;"></a>&lt;问题解决方法&gt;</h2><p>如果遇到将系统自带挂载程序改名时提示 <code>mv: rename mount_ntfs to mount_ntfs_orig: Operation not permitted.</code>的问题，可按 <code>osx - Operation Not Permitted when on root El capitan (rootless disabled)</code>提到的方法解决，具体步骤如下:</p>
+<h3 id="1-进入恢复模式"><a href="#1-进入恢复模式" class="headerlink" title="1. 进入恢复模式"></a>1. 进入恢复模式</h3><p>重启 Mac，cmd+R 进入恢复（recovery）模式<br>找到 terminal（在“XX工具”里面）</p>
+<h3 id="2-输入命令"><a href="#2-输入命令" class="headerlink" title="2. 输入命令"></a>2. 输入命令</h3><p>打开后输入如下命令关闭安全限制</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ csrutil disable</div></pre></td></tr></table></figure>
+<p>输入如下命令重启，重复上面的步骤</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ reboot</div></pre></td></tr></table></figure>
+<p>最后注意：修改csrutil后记得关闭</p>
+
+          </section>
+        </article>
+        
+
+       
+        <div class="pager">
+          
+          
+            <a class="post-next pager-item" href="/2017/03/29/13-写书软件gitbook的使用/">
+              <strong class="article-nav-caption">下一篇</strong>
+              <p class="post-nav-title">gitbook的使用</p>
+            </a>
+          
+        </div>
+        
+
+         <!-- comments -->
+        <div class="comment-section">
+  
+    
+
+
+</div>
+
+    </div>
+    
+    <aside>
+        <div id="toc">
+        </div>
+    </aside>
+    
+</div>
+
+                </div>
+            </div>
+        </div>
+        <footer class="footer">
+    <p>由<a href="http://hexo.io/" target="_blank">Hexo</a>强力驱动，搭载<a href="https://github.com/wayou/hexo-theme-gstyle">gstyle</a>主题</p>
+    <p>
+        &copy; 2017 dongGe
+    </p>
+    
+  
+
+  
+
+  
+  <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1261300516'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/stat.php%3Fid%3D1261300516' type='text/javascript'%3E%3C/script%3E"));</script>
+  
+</footer>
+<script src="/lib/jquery.js"></script>
+<script src="/lib/waves.js"></script>
+<script src="/lib/jquery-ui.js"></script>
+<script src="/lib/jquery.tocify.js"></script>
+<script src="/js/main.js"></script>
+
+
+    </body>
+</html>

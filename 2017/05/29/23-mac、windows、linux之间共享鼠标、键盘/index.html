@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+          <head>
+        <meta charset="utf-8">
+            
+            <title>
+                Mac、windows、linux之间共享鼠标、键盘 | Howdoit
+            </title>
+            <meta content="width=device-width, initial-scale=1" name="viewport">
+            <meta name="theme-color" content="#4184f3">
+            
+            
+            <link href="/favicon.ico" rel="icon"/>
+            
+
+            <link rel="stylesheet" href="/css/highlight.light.css">
+            <link rel="stylesheet" href="/css/prism-customize.css">
+            <link rel="stylesheet" href="/css/nav-icon.css">
+            <link rel="stylesheet" href="/css/waves.min.css">
+            <link rel="stylesheet" href="/css/jquery.tocify.css">
+            <link rel="stylesheet" href="/css/main.css">
+            <link rel="stylesheet" href="/css/nav-indicator.css">
+            </meta>
+        </meta>
+    </head>
+
+    <body>
+        <header>
+            <!-- cover image or sth. -->
+        </header>
+        <div id="main" class="m-scene">
+            
+<div class="nav-wrapper">
+
+    <div class="container">
+        <nav>
+            <div class="logo wave">
+                <a href="/" id="logo">
+                    Howdoit
+                </a>
+            </div>
+            <div class="nav-toggle-icon" >
+                <div class="material-hamburger">
+                    <span>
+                    </span>
+                    <span>
+                    </span>
+                    <span>
+                    </span>
+                </div>
+            </div>
+            <div class="menu-wrapper">
+                <div class="nav-indicator">
+                </div>
+                <ul class="menus">
+                    
+                     
+                        <li>
+                            <a class="wave " href="/categories/Python">
+                                Python
+                            </a>
+                        </li>
+                     
+                        <li>
+                            <a class="wave " href="/categories/c语言">
+                                C语言
+                            </a>
+                        </li>
+                     
+                        <li>
+                            <a class="wave " href="/categories/cpp">
+                                CPP
+                            </a>
+                        </li>
+                     
+                        <li>
+                            <a class="wave " href="/categories/linux">
+                                Linux
+                            </a>
+                        </li>
+                     
+                        <li>
+                            <a class="wave " href="/categories/小众软件">
+                                小众软件
+                            </a>
+                        </li>
+                     
+                        <li>
+                            <a class="wave " href="/categories/股票">
+                                股票
+                            </a>
+                        </li>
+                     
+                    
+                   
+                </ul>
+            </div>
+        </nav>
+    </div>
+</div>
+            <div class="container content">
+                <div class="scene_element scene_element--fadein">
+                    <div class="row">
+    <div class="main">
+        <article>
+          
+          <header class="post-header">
+          
+          </header>
+          <h1 class="post-title">Mac、windows、linux之间共享鼠标、键盘</h1>
+
+          <section class="post-info">
+            <span class="post-date">2017/05/29</span>
+            
+            <span class="post-category">
+                <a class="article-category-link" href="/categories/小众软件/">小众软件</a>
+            </span>
+            
+            
+          </section>
+
+          <section class="post-content">
+            <h2 id="0-前言"><a href="#0-前言" class="headerlink" title="0. 前言"></a>0. 前言</h2><p>随着现在人们收入的不断增高，一个人有多个电脑也是常有的事了，但是怎样在多个电脑之前共享鼠标、键盘就成为了一个很有趣的事情—-synergy</p>
+<h2 id="1-下载-amp-安装"><a href="#1-下载-amp-安装" class="headerlink" title="1. 下载 &amp; 安装"></a>1. 下载 &amp; 安装</h2><p>点击链接下载<a href="http://oosom81xh.bkt.clouddn.com/Synergy150.dmg" target="_blank" rel="external">http://oosom81xh.bkt.clouddn.com/Synergy150.dmg</a></p>
+<p>然后就是mac中安装了（全球人都知道）</p>
+<h2 id="2-运行"><a href="#2-运行" class="headerlink" title="2. 运行"></a>2. 运行</h2><h3 id="1-synergy的选择"><a href="#1-synergy的选择" class="headerlink" title="1. synergy的选择"></a>1. synergy的选择</h3><p>在1台电脑上选择server进行运行、另外（多态）选择client运行</p>
+<h3 id="2-配置服务器"><a href="#2-配置服务器" class="headerlink" title="2. 配置服务器"></a>2. 配置服务器</h3><p><img src="http://oosox9kn5.bkt.clouddn.com/image/20140102171756312.png" alt=""></p>
+<p>点击开始第一个坑出现了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">FATAL: Init failed: system setting not enabled: &quot;Enable access for assistive devices&quot;</div><div class="line">Try `synergys --help&apos; for more information.</div></pre></td></tr></table></figure>
+<p><img src="http://oosox9kn5.bkt.clouddn.com/image/20140102172019546.png" alt=""></p>
+<p>这个原因主要是没有打开iOS系统的 启用辅助设备的控制  mac ox 10.8之后,设置的路径改了,原来在隐私设置里面现在放到了辅助功能<br>系统设置–&gt;安全和隐私–&gt;辅助功能 里面   (当mac做从机的时候不需要打开这个选项)</p>
+<p><img src="http://oosox9kn5.bkt.clouddn.com/image/20140102171734125.png" alt=""></p>
+<p>之后在启动synergy 程序就可以正常运行了,现在开始配置windows端 输入服务端的ip地址,点击开始.</p>
+<p><img src="http://oosox9kn5.bkt.clouddn.com/image/20140102173735250.jpeg" alt=""></p>
+<p>这里碰到第二个坑.log里面一直显示连接不上 ,原因是要在服务端先添加一个从机定义,从机才能正常连上</p>
+<p><img src="http://oosox9kn5.bkt.clouddn.com/image/20140102172721968.png" alt=""></p>
+<p>双击新添加的屏幕,编辑屏幕的名字为你从机的名字,我这里是 M-Koh-PC,<br>并且注意两个屏幕的位置.我的屏幕的实际摆放是 windows在mac的左边, 所有这里我的M-koh 也在左边,不了鼠标穿过屏幕边界的时候会有问题<br>点击ok,重新启动下服务端就可以了<br>现在你的鼠标就可以在多个设备之间屏幕直接穿梭了….有没有很酷.</p>
+
+          </section>
+        </article>
+        
+
+       
+        <div class="pager">
+          
+          
+            <a class="post-next pager-item" href="/2017/05/15/22-pyQt搭建/">
+              <strong class="article-nav-caption">下一篇</strong>
+              <p class="post-nav-title">pyQt搭建</p>
+            </a>
+          
+        </div>
+        
+
+         <!-- comments -->
+        <div class="comment-section">
+  
+    
+
+
+</div>
+
+    </div>
+    
+    <aside>
+        <div id="toc">
+        </div>
+    </aside>
+    
+</div>
+
+                </div>
+            </div>
+        </div>
+        <footer class="footer">
+    <p>由<a href="http://hexo.io/" target="_blank">Hexo</a>强力驱动，搭载<a href="https://github.com/wayou/hexo-theme-gstyle">gstyle</a>主题</p>
+    <p>
+        &copy; 2017 dongGe
+    </p>
+    
+  
+
+  
+
+  
+  <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1261300516'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/stat.php%3Fid%3D1261300516' type='text/javascript'%3E%3C/script%3E"));</script>
+  
+</footer>
+<script src="/lib/jquery.js"></script>
+<script src="/lib/waves.js"></script>
+<script src="/lib/jquery-ui.js"></script>
+<script src="/lib/jquery.tocify.js"></script>
+<script src="/js/main.js"></script>
+
+
+    </body>
+</html>

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+          <head>
+        <meta charset="utf-8">
+            
+            <title>
+                MAC搭建Nginx | Howdoit
+            </title>
+            <meta content="width=device-width, initial-scale=1" name="viewport">
+            <meta name="theme-color" content="#4184f3">
+            
+            
+            <link href="/favicon.ico" rel="icon"/>
+            
+
+            <link rel="stylesheet" href="/css/highlight.light.css">
+            <link rel="stylesheet" href="/css/prism-customize.css">
+            <link rel="stylesheet" href="/css/nav-icon.css">
+            <link rel="stylesheet" href="/css/waves.min.css">
+            <link rel="stylesheet" href="/css/jquery.tocify.css">
+            <link rel="stylesheet" href="/css/main.css">
+            <link rel="stylesheet" href="/css/nav-indicator.css">
+            </meta>
+        </meta>
+    </head>
+
+    <body>
+        <header>
+            <!-- cover image or sth. -->
+        </header>
+        <div id="main" class="m-scene">
+            
+<div class="nav-wrapper">
+
+    <div class="container">
+        <nav>
+            <div class="logo wave">
+                <a href="/" id="logo">
+                    Howdoit
+                </a>
+            </div>
+            <div class="nav-toggle-icon" >
+                <div class="material-hamburger">
+                    <span>
+                    </span>
+                    <span>
+                    </span>
+                    <span>
+                    </span>
+                </div>
+            </div>
+            <div class="menu-wrapper">
+                <div class="nav-indicator">
+                </div>
+                <ul class="menus">
+                    
+                     
+                        <li>
+                            <a class="wave " href="/categories/Python">
+                                Python
+                            </a>
+                        </li>
+                     
+                        <li>
+                            <a class="wave " href="/categories/c语言">
+                                C语言
+                            </a>
+                        </li>
+                     
+                        <li>
+                            <a class="wave " href="/categories/cpp">
+                                CPP
+                            </a>
+                        </li>
+                     
+                        <li>
+                            <a class="wave " href="/categories/linux">
+                                Linux
+                            </a>
+                        </li>
+                     
+                        <li>
+                            <a class="wave " href="/categories/小众软件">
+                                小众软件
+                            </a>
+                        </li>
+                     
+                        <li>
+                            <a class="wave " href="/categories/股票">
+                                股票
+                            </a>
+                        </li>
+                     
+                    
+                   
+                </ul>
+            </div>
+        </nav>
+    </div>
+</div>
+            <div class="container content">
+                <div class="scene_element scene_element--fadein">
+                    <div class="row">
+    <div class="main">
+        <article>
+          
+          <header class="post-header">
+          
+          </header>
+          <h1 class="post-title">MAC搭建Nginx</h1>
+
+          <section class="post-info">
+            <span class="post-date">2017/09/13</span>
+            
+            <span class="post-category">
+                <a class="article-category-link" href="/categories/linux/">linux</a>
+            </span>
+            
+            
+          </section>
+
+          <section class="post-content">
+            <h2 id="1-安装-Nginx"><a href="#1-安装-Nginx" class="headerlink" title="1. 安装 Nginx"></a>1. 安装 Nginx</h2><h3 id="检查是否可以安装Nginx"><a href="#检查是否可以安装Nginx" class="headerlink" title="检查是否可以安装Nginx"></a>检查是否可以安装Nginx</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew search nginx</div></pre></td></tr></table></figure>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install nginx</div></pre></td></tr></table></figure>
+<h4 id="会看到如下过程"><a href="#会看到如下过程" class="headerlink" title="会看到如下过程"></a>会看到如下过程</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">==&gt; Installing nginx</div><div class="line">==&gt; Downloading https://homebrew.bintray.com/bottles/nginx-1.12.1.sierra.bottle.tar.gz</div><div class="line">######################################################################## 100.0%</div><div class="line">==&gt; Pouring nginx-1.12.1.sierra.bottle.tar.gz</div><div class="line">==&gt; Caveats</div><div class="line">Docroot is: /usr/local/var/www</div><div class="line"></div><div class="line">The default port has been set in /usr/local/etc/nginx/nginx.conf to 8080 so that</div><div class="line">nginx can run without sudo.</div><div class="line"></div><div class="line">nginx will load all files in /usr/local/etc/nginx/servers/.</div><div class="line"></div><div class="line">To have launchd start nginx now and restart at login:</div><div class="line">  brew services start nginx</div><div class="line">Or, if you don&apos;t want/need a background service you can just run:</div><div class="line">  nginx</div><div class="line">==&gt; Summary</div><div class="line">🍺  /usr/local/Cellar/nginx/1.12.1: 23 files, 1MB</div></pre></td></tr></table></figure>
+<p>当前版本 1.12</p>
+<p>安装完以后，可以在终端输出的信息里看到一些配置路径：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">/usr/local/etc/nginx/nginx.conf （配置文件路径）</div><div class="line">/usr/local/var/www （服务器默认路径）</div><div class="line">/usr/local/Cellar/nginx/1.6.2  （貌似是安装路径）</div></pre></td></tr></table></figure></p>
+<h2 id="2-访问localhost-8080"><a href="#2-访问localhost-8080" class="headerlink" title="2. 访问localhost:8080"></a>2. 访问localhost:8080</h2><p>Nginx 默认8080端口，这时已经可以访问了：</p>
+<p>在浏览器中输入网址:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">localhost:8080</div></pre></td></tr></table></figure></p>
+<p>会有一个默认欢迎界面。</p>
+<h2 id="3-常用的指令"><a href="#3-常用的指令" class="headerlink" title="3. 常用的指令"></a>3. 常用的指令</h2><table>
+<thead>
+<tr>
+<th style="text-align:left">命令</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">nginx -V</td>
+<td style="text-align:left">查看版本，以及配置文件地址</td>
+</tr>
+<tr>
+<td style="text-align:left">nginx -v</td>
+<td style="text-align:left">查看版本</td>
+</tr>
+<tr>
+<td style="text-align:left">nginx -c filename</td>
+<td style="text-align:left">指定配置文件</td>
+</tr>
+<tr>
+<td style="text-align:left">nginx -h</td>
+<td style="text-align:left">帮助</td>
+</tr>
+</tbody>
+</table>
+<p>重新加载配置、重启、停止、退出 nginx<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nginx -s reload|reopen|stop|quit</div></pre></td></tr></table></figure></p>
+<p>打开 nginx<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo nginx</div></pre></td></tr></table></figure></p>
+<p>测试配置是否有语法错误<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nginx -t</div></pre></td></tr></table></figure></p>
+<h2 id="4-Nginx-PHP-FPM配置"><a href="#4-Nginx-PHP-FPM配置" class="headerlink" title="4. Nginx + PHP-FPM配置"></a>4. Nginx + PHP-FPM配置</h2><p>按文件夹结构来存放Nginx的配置文件</p>
+<p>在mac中新建文件夹</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">mkdir -p /usr/local/var/log/nginx</div><div class="line">mkdir -p /usr/local/etc/nginx/sites-available</div><div class="line">mkdir -p /usr/local/etc/nginx/sites-enabled</div><div class="line">mkdir -p /usr/local/etc/nginx/conf.d</div><div class="line">mkdir -p /usr/local/etc/nginx/ssl</div></pre></td></tr></table></figure>
+<p>编辑Nginx全局配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim /usr/local/etc/nginx/nginx.conf</div></pre></td></tr></table></figure>
+<p>编辑如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">user dongge staff</div><div class="line">worker_processes  1;</div><div class="line">error_log   /usr/local/var/log/nginx/error.log debug;</div><div class="line">pid        /usr/local/var/run/nginx.pid;</div><div class="line"></div><div class="line">events &#123;</div><div class="line">    worker_connections  256;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">http &#123;</div><div class="line">    include       mime.types;</div><div class="line">    default_type  application/octet-stream;</div><div class="line"></div><div class="line">    log_format main &apos;$remote_addr - $remote_user [$time_local] &apos;</div><div class="line">        &apos;&quot;$request&quot; $status $body_bytes_sent &apos;</div><div class="line">        &apos;&quot;$http_referer&quot; &quot;$http_user_agent&quot; &apos;</div><div class="line">        &apos;&quot;$http_x_forwarded_for&quot; $host $request_time $upstream_response_time $scheme &apos;</div><div class="line">        &apos;$cookie_evalogin&apos;;</div><div class="line"></div><div class="line">    access_log  /usr/local/var/log/access.log  main;</div><div class="line"></div><div class="line">    sendfile        on;</div><div class="line">    keepalive_timeout  65;</div><div class="line">    port_in_redirect off;</div><div class="line"></div><div class="line">    include /usr/local/etc/nginx/sites-enabled/*;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这样一来首先可以把一些可复用配置独立出来放在/usr/local/etc/nginx/conf.d下，比如fastcgi的设置就可以独立出来</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim /usr/local/etc/nginx/conf.d/php-fpm</div></pre></td></tr></table></figure>
+<p>内容为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">location ~ \.php$ &#123;</div><div class="line">    try_files                   $uri = 404;</div><div class="line">    fastcgi_pass                127.0.0.1:9000;</div><div class="line">    fastcgi_index               index.php;</div><div class="line">    fastcgi_intercept_errors    on;</div><div class="line">    include /usr/local/etc/nginx/fastcgi.conf;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>然后在<code>/usr/local/etc/nginx/sites-enabled</code>目录下可以一个文件对应一个域名的配置，比如web服务器目录是<code>/opt/htdocs</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim /usr/local/etc/nginx/sites-enabled/default</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">server &#123;</div><div class="line">    listen       80;</div><div class="line">    server_name  localhost;</div><div class="line">    root         /opt/htdocs/;</div><div class="line"></div><div class="line">    location / &#123;</div><div class="line">        index  index.html index.htm index.php;</div><div class="line">        include     /usr/local/etc/nginx/conf.d/php-fpm;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>此时启动了php-fpm并且启动了Nginx后，就可以通过<code>http://localhost</code>来运行php程序了</p>
+<h3 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h3><ol>
+<li>如果Nginx报错403，那么检查下user dongge staff这里</li>
+</ol>
+
+          </section>
+        </article>
+        
+
+       
+        <div class="pager">
+          
+            <a class="post-prev pager-item" href="/2017/09/13/28-mac搭建php/" >
+              <strong class="article-nav-caption">上一篇</strong>
+              <p class="post-nav-title">MAC搭建php</p>
+            </a>
+          
+          
+            <a class="post-next pager-item" href="/2017/09/13/26-mac搭建mysql/">
+              <strong class="article-nav-caption">下一篇</strong>
+              <p class="post-nav-title">MAC搭建MySQL</p>
+            </a>
+          
+        </div>
+        
+
+         <!-- comments -->
+        <div class="comment-section">
+  
+    
+
+
+</div>
+
+    </div>
+    
+    <aside>
+        <div id="toc">
+        </div>
+    </aside>
+    
+</div>
+
+                </div>
+            </div>
+        </div>
+        <footer class="footer">
+    <p>由<a href="http://hexo.io/" target="_blank">Hexo</a>强力驱动，搭载<a href="https://github.com/wayou/hexo-theme-gstyle">gstyle</a>主题</p>
+    <p>
+        &copy; 2017 dongGe
+    </p>
+    
+  
+
+  
+
+  
+  <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1261300516'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/stat.php%3Fid%3D1261300516' type='text/javascript'%3E%3C/script%3E"));</script>
+  
+</footer>
+<script src="/lib/jquery.js"></script>
+<script src="/lib/waves.js"></script>
+<script src="/lib/jquery-ui.js"></script>
+<script src="/lib/jquery.tocify.js"></script>
+<script src="/js/main.js"></script>
+
+
+    </body>
+</html>

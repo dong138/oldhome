@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+          <head>
+        <meta charset="utf-8">
+            
+            <title>
+                MAC搭建php | Howdoit
+            </title>
+            <meta content="width=device-width, initial-scale=1" name="viewport">
+            <meta name="theme-color" content="#4184f3">
+            
+            
+            <link href="/favicon.ico" rel="icon"/>
+            
+
+            <link rel="stylesheet" href="/css/highlight.light.css">
+            <link rel="stylesheet" href="/css/prism-customize.css">
+            <link rel="stylesheet" href="/css/nav-icon.css">
+            <link rel="stylesheet" href="/css/waves.min.css">
+            <link rel="stylesheet" href="/css/jquery.tocify.css">
+            <link rel="stylesheet" href="/css/main.css">
+            <link rel="stylesheet" href="/css/nav-indicator.css">
+            </meta>
+        </meta>
+    </head>
+
+    <body>
+        <header>
+            <!-- cover image or sth. -->
+        </header>
+        <div id="main" class="m-scene">
+            
+<div class="nav-wrapper">
+
+    <div class="container">
+        <nav>
+            <div class="logo wave">
+                <a href="/" id="logo">
+                    Howdoit
+                </a>
+            </div>
+            <div class="nav-toggle-icon" >
+                <div class="material-hamburger">
+                    <span>
+                    </span>
+                    <span>
+                    </span>
+                    <span>
+                    </span>
+                </div>
+            </div>
+            <div class="menu-wrapper">
+                <div class="nav-indicator">
+                </div>
+                <ul class="menus">
+                    
+                     
+                        <li>
+                            <a class="wave " href="/categories/Python">
+                                Python
+                            </a>
+                        </li>
+                     
+                        <li>
+                            <a class="wave " href="/categories/c语言">
+                                C语言
+                            </a>
+                        </li>
+                     
+                        <li>
+                            <a class="wave " href="/categories/cpp">
+                                CPP
+                            </a>
+                        </li>
+                     
+                        <li>
+                            <a class="wave " href="/categories/linux">
+                                Linux
+                            </a>
+                        </li>
+                     
+                        <li>
+                            <a class="wave " href="/categories/小众软件">
+                                小众软件
+                            </a>
+                        </li>
+                     
+                        <li>
+                            <a class="wave " href="/categories/股票">
+                                股票
+                            </a>
+                        </li>
+                     
+                    
+                   
+                </ul>
+            </div>
+        </nav>
+    </div>
+</div>
+            <div class="container content">
+                <div class="scene_element scene_element--fadein">
+                    <div class="row">
+    <div class="main">
+        <article>
+          
+          <header class="post-header">
+          
+          </header>
+          <h1 class="post-title">MAC搭建php</h1>
+
+          <section class="post-info">
+            <span class="post-date">2017/09/13</span>
+            
+            <span class="post-category">
+                <a class="article-category-link" href="/categories/linux/">linux</a>
+            </span>
+            
+            
+          </section>
+
+          <section class="post-content">
+            <h2 id="1-简单介绍"><a href="#1-简单介绍" class="headerlink" title="1. 简单介绍"></a>1. 简单介绍</h2><p>我平时开发用的是MAC，因此只针对MAC下的开发用户。用过ubuntu和centos的同类们，都知道apt-get，和yum这俩个神器，Mac 也有和这俩工具差不多的玩意,homebrew，</p>
+<p>安装软件特别方便，建议大家没有安装的话最好安装一下，省的被各种以来弄得脑袋疼。</p>
+<p>在安装之前，有必要解释下apache和nginx解析php的原理。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">以前，我一直使用的是apache做web服务器,配置过apache的都应该知道，</div><div class="line">php是挂在apache下的一个模块,当http请求一个php文件的话，</div><div class="line">apache会调用php模块儿进行解析，然后返回html给apache。</div></pre></td></tr></table></figure>
+<p>而nginx又点不一样,它必须通过一个FastCGI的进程管理器来启动php解析,</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">也就是是php-fpm,当nginx接受的php请求时，</div><div class="line">它会向它监听的fpm发送一个请求，当fpm接受到请求以后，在创建一个子进程来调用php进行解析。</div><div class="line"></div><div class="line">当解析完成后，回收线程，返回html给nginx，这里也引出了一个问题，那就是php鸡肋一般的单例，</div><div class="line"></div><div class="line">由于php的生命周期是伴随着一个请求的开始和结束，当这个请求完毕后，该线程就会自动回收了</div></pre></td></tr></table></figure>
+<h2 id="2-安装步骤-提前安装好homebrew"><a href="#2-安装步骤-提前安装好homebrew" class="headerlink" title="2. 安装步骤(提前安装好homebrew)"></a>2. 安装步骤(提前安装好homebrew)</h2><h3 id="2-1-卸载mac自带的apache和php-有用集成环境，建议也删掉"><a href="#2-1-卸载mac自带的apache和php-有用集成环境，建议也删掉" class="headerlink" title="2.1. 卸载mac自带的apache和php,有用集成环境，建议也删掉"></a>2.1. 卸载mac自带的apache和php,有用集成环境，建议也删掉</h3><p>先停掉apache:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apachectl stop</div></pre></td></tr></table></figure></p>
+<p>然后统统删掉</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo rm /usr/sbin/httpd</div><div class="line">sudo rm -r /etc/apache2/</div></pre></td></tr></table></figure>
+<h2 id="3-安装nginx"><a href="#3-安装nginx" class="headerlink" title="3.安装nginx"></a>3.安装nginx</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install nginx</div></pre></td></tr></table></figure>
+<p>安装完后，先不急着修改配置文件</p>
+<p>先设置权限</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo chown root:wheel/usr/local/opt/nginx/bin/nginx</div><div class="line">sudo chmod u+s/usr/local/opt/nginx/bin/nginx</div></pre></td></tr></table></figure>
+<p>如果想设开机启动的话</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">mkdir -p ~/Library/LaunchAgents</div><div class="line">cp /usr/local/opt/nginx/homebrew.mxcl.nginx.plist ~/Library/LaunchAgents/</div><div class="line">launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.nginx.plist</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.nginx.plist(取消开机启动)</div></pre></td></tr></table></figure>
+<h3 id="nginx命令"><a href="#nginx命令" class="headerlink" title="nginx命令"></a>nginx命令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo nginx #打开 nginx</div><div class="line">nginx -s reload|reopen|stop|quit  #重新加载配置|重启|停止|退出 nginx</div><div class="line">nginx -t   #测试配置是否有语法错误</div></pre></td></tr></table></figure>
+<p>如果提示pid丢失的话，就用这句话<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nginx -c &quot;/usr/local/etc/nginx/nginx.conf&quot;</div></pre></td></tr></table></figure></p>
+<p>好了nginx安装完毕，大家可以localhost一下，就可以看到nginx的信息了</p>
+<h2 id="4-先安装php7"><a href="#4-先安装php7" class="headerlink" title="4.先安装php7"></a>4.先安装php7</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install php70 --without-apache --with-fpm</div></pre></td></tr></table></figure>
+<p>因为我们用nginx,所有–without-apache，并且加上–with-fpm来编译php</p>
+<p>安装完成后，加入全局变量</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim ~/.bash_profile</div></pre></td></tr></table></figure>
+<p>添加<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">export PATH=/usr/local/bin:/usr/sbin:$PATH</div></pre></td></tr></table></figure></p>
+<p>然后<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim ~/.bashrc</div></pre></td></tr></table></figure></p>
+<p>添加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">export PATH = &quot;$(brew --prefix homebrew/php/php70)/bin:$PATH&quot;</div></pre></td></tr></table></figure>
+<p>最后 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">source ~/.bash_profile</div><div class="line">source ~/.bashrc</div></pre></td></tr></table></figure>
+<p>然后加入开机自启</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">mkdir -p ~/Library/LaunchAgents</div><div class="line">cp /usr/local/opt/php70/homebrew.mxcl.php70.plist ~/Library/LaunchAgents/</div><div class="line">launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.php70.plist</div></pre></td></tr></table></figure>
+<h2 id="5-配置nginx-和-php-fpm"><a href="#5-配置nginx-和-php-fpm" class="headerlink" title="5. 配置nginx 和 php-fpm"></a>5. 配置nginx 和 php-fpm</h2><h3 id="nginx配置"><a href="#nginx配置" class="headerlink" title="nginx配置"></a>nginx配置</h3><p>nginx的配置文件在 <code>/usr/local/etc/nginx/</code>文件中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim nginx.conf</div></pre></td></tr></table></figure>
+<p>然后 根据 自己的需求去配置就行，这里就不用详细说了</p>
+<h3 id="php-fpm的配置"><a href="#php-fpm的配置" class="headerlink" title="php-fpm的配置"></a>php-fpm的配置</h3><p>先cd到<code>/usr/local/etc/php</code>,你可以看到7.0这个文件夹</p>
+<p>这没什么配置的，就是把nginx和fpm的端口统一就行</p>
+<h2 id="6-最后关键"><a href="#6-最后关键" class="headerlink" title="6. 最后关键"></a>6. 最后关键</h2><p>每次修改了php.ini文件。都要重启php-fpm，就行启动apache一样，不过这会不用重启nginx</p>
+<p>重启步骤</p>
+<p>先停掉所有php-fpm的进程</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo killall php-fpm</div></pre></td></tr></table></figure>
+<p>cd  /usr/local/Cellar/php/版本号/sbin<br>不同版本的php,sbin目录里会有不同的php-fpm,比如php7.0的是php70-fpm, php5.6.18的是 php56-fpm,</p>
+<p>你想启动哪个fpm就敲 <code>sudo ./php70-fpm start 或php56-fpm start</code>就行</p>
+<h2 id="小节"><a href="#小节" class="headerlink" title="小节"></a>小节</h2><ol>
+<li><p>mac中php、php-fpm安装的路径为<code>/usr/local/Cellar/php70</code>,如果需要在终端中直接启动这些版本的php，那么<br>可以在~/.bash_profile文件的最后加入如下:</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">export PATH=/usr/local/Cellar/php70/7.0.22_14/bin:/usr/local/Cellar/php70/7.0.22_14/sbin:$PATH</div></pre></td></tr></table></figure>
+</li>
+<li><p>php7.0的配置路径为<code>/usr/local/etc/php/7.0/php-fpm.d</code></p>
+</li>
+<li><p>参考文章<a href="http://blog.csdn.net/geyuezhen/article/details/50716780" target="_blank" rel="external">http://blog.csdn.net/geyuezhen/article/details/50716780</a></p>
+</li>
+</ol>
+
+          </section>
+        </article>
+        
+
+       
+        <div class="pager">
+          
+          
+            <a class="post-next pager-item" href="/2017/09/13/27-mac搭建Nginx/">
+              <strong class="article-nav-caption">下一篇</strong>
+              <p class="post-nav-title">MAC搭建Nginx</p>
+            </a>
+          
+        </div>
+        
+
+         <!-- comments -->
+        <div class="comment-section">
+  
+    
+
+
+</div>
+
+    </div>
+    
+    <aside>
+        <div id="toc">
+        </div>
+    </aside>
+    
+</div>
+
+                </div>
+            </div>
+        </div>
+        <footer class="footer">
+    <p>由<a href="http://hexo.io/" target="_blank">Hexo</a>强力驱动，搭载<a href="https://github.com/wayou/hexo-theme-gstyle">gstyle</a>主题</p>
+    <p>
+        &copy; 2017 dongGe
+    </p>
+    
+  
+
+  
+
+  
+  <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1261300516'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/stat.php%3Fid%3D1261300516' type='text/javascript'%3E%3C/script%3E"));</script>
+  
+</footer>
+<script src="/lib/jquery.js"></script>
+<script src="/lib/waves.js"></script>
+<script src="/lib/jquery-ui.js"></script>
+<script src="/lib/jquery.tocify.js"></script>
+<script src="/js/main.js"></script>
+
+
+    </body>
+</html>
